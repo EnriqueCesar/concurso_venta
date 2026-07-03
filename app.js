@@ -41,8 +41,28 @@ function renderChart(list){
   </svg>`;
 }
 function renderTrendTable(){
-  $('#trendTable').innerHTML = `<table><thead><tr><th>Semana</th><th>Prom. tienda</th><th>Total</th><th>Líder</th></tr></thead><tbody>${DATA.weeklySummary.map(w=>`<tr><td>Sem ${w.week}</td><td>${money(w.avg)}</td><td>${money(w.total)}</td><td>${w.leader}${w.leaderValue?` · ${money(w.leaderValue)}`:''}</td></tr>`).join('')}</tbody></table>`;
+  const max = Math.max(...DATA.weeklySummary.map(w=>Number(w.total)||0), 1);
+  $('#trendTable').innerHTML = `<div class="weekGrid">${DATA.weeklySummary.map(w=>{
+    const total = Number(w.total)||0;
+    const width = Math.max(total ? 8 : 0, Math.min(100, total/max*100));
+    const status = total>0 ? 'Con avance' : 'Pendiente';
+    return `<article class="weekCard ${total?'':'pending'}"><div class="weekTop"><strong>Sem ${w.week}</strong><span>${status}</span></div><div class="weekBar"><i style="width:${width}%"></i></div><div class="weekMeta"><b>${money(total)}</b><small>unidades</small></div><p>Líder: <b>${w.leader}</b>${w.leaderValue?` · ${money(w.leaderValue)}`:''}</p></article>`;
+  }).join('')}</div>`;
 }
 function sortBy(mode){stores.sort((a,b)=> mode==='units'?b.units-a.units: mode==='actual'?b.actual-a.actual:b.diff-a.diff); renderCards(stores);} 
 setTabs(); renderKpis(); renderCards(); $('#sortMode').addEventListener('change',e=>sortBy(e.target.value));
 if('serviceWorker' in navigator){navigator.serviceWorker.register('service-worker.js').catch(()=>{});}
+
+function setImageModal(){
+  const modal=$('#imageModal'), img=$('#modalImg'), title=$('#modalTitle');
+  if(!modal) return;
+  document.querySelectorAll('.imageBtn').forEach(btn=>btn.addEventListener('click',()=>{
+    img.src=btn.dataset.img; img.alt=btn.dataset.title; title.textContent=btn.dataset.title;
+    modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+  }));
+  const close=()=>{modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); img.src='';};
+  $('.modalClose').addEventListener('click',close);
+  modal.addEventListener('click',e=>{if(e.target===modal) close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape') close();});
+}
+setImageModal();
