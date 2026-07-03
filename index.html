@@ -1,8 +1,80 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Concurso Venta Grab & Go</title><link rel="manifest" href="manifest.json"><link rel="stylesheet" href="styles.css"><script src="data/config.js"></script></head><body>
-<header class="hero"><div><span class="eyebrow">Distrito Kike · Portafolio</span><h1>Concurso de Venta</h1><p>Ranking dinámico para empujar Dona Grab & Go y productos clave. Carga tu avance diario, valida fecha de corte y enfoca al equipo ganador.</p></div><div class="hero-card"><strong>Fecha de corte</strong><b id="cutDate">Pendiente de carga</b><span>Se toma el último día cargado</span></div></header>
-<nav class="tabs"><button class="tab active" data-tab="dona">1. Concurso Dona Grab & Go</button><button class="tab" data-tab="general">2. Concurso General</button><button class="tab" data-tab="carga">Carga de avance</button></nav>
-<main>
-<section id="dona" class="panel active"><div class="brief"><img src="assets/products/Dona G&G.jpeg"><div><h2>Concurso Dona Grab & Go</h2><p>Del <b>6 de julio al 2 de agosto</b>. Gana la tienda que más supere su promedio base de Semanas 24 a 26.</p><p class="prize">Premio: pizzas para el equipo en Roll Out Fall 26.</p></div></div><div class="kpis" id="kpisDona"></div><div class="toolbar"><select id="sortDona"><option value="diff">Ordenar por diferencia</option><option value="promActual">Promedio actual</option><option value="base">Base Sem 24-26</option></select></div><div id="rankingDona" class="ranking"></div></section>
-<section id="general" class="panel"><div class="brief"><img src="assets/products/Cheescake Roulete.jpeg"><div><h2>Concurso General</h2><p>Del <b>6 de julio al 9 de agosto</b>. Cada pieza vendida suma puntos según producto. Gana la tienda con más puntos acumulados.</p><p class="prize">Premio: un día adicional con goce de sueldo. Planificación con Gerente de Tienda del 24 de agosto al 11 de octubre.</p></div></div><div class="products" id="productCards"></div><div class="kpis" id="kpisGeneral"></div><div class="toolbar"><select id="sortGeneral"><option value="points">Ordenar por puntos</option><option value="units">Unidades</option><option value="today">Puntos del día</option></select></div><div id="rankingGeneral" class="ranking"></div></section>
-<section id="carga" class="panel"><div class="brief no-img"><div><h2>Carga de avance</h2><p>Pega información desde Excel o CSV con columnas: <b>fecha, semana, tienda, producto, unidades</b>. También acepta encabezados similares como Día, Tiendas, Ingrediente, Venta Unidad.</p></div></div><textarea id="csvInput" placeholder="fecha,semana,tienda,producto,unidades\n2026-07-06,28,Cc Coacalco,Dona Grab & Go,9"></textarea><div class="actions"><button id="loadCsv">Cargar avance</button><button id="loadSample">Cargar ejemplo</button><button id="clearData">Limpiar avance</button><button id="exportCsv">Exportar avance CSV</button></div><div class="table-wrap"><table id="dataTable"></table></div></section>
-</main><footer>Hecho para GitHub Pages · PWA instalable · Datos guardados en este navegador</footer><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#006241" />
+  <title>Concurso Dona Grab & Go</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">★</span><div><strong>Concurso de Venta</strong><small>Portafolio Enrique César Flores</small></div></div>
+    <nav class="tabs" aria-label="Secciones">
+      <button class="tab active" data-view="dona">Dona Grab & Go</button>
+      <button class="tab" data-view="general">Concurso General</button>
+    </nav>
+  </header>
+
+  <main id="view-dona" class="view active">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">Ranking Premium · Semana a semana</span>
+        <h1>Concurso Dona Grab & Go</h1>
+        <p>Del <strong>1 de julio al 9 de agosto</strong>. Gana la tienda que más supere su promedio base de Semanas 24 a 26.</p>
+        <div class="hero-actions">
+          <span id="cutDate" class="pill">Resumen actualizado a fecha</span>
+          <span class="pill soft">Solo tiendas del portafolio</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="assets/products/Dona G&G.jpeg" alt="Dona Grab & Go">
+        <div><strong>Dona G&G</strong><small>1 unidad = avance directo</small></div>
+      </div>
+    </section>
+
+    <section class="kpis" id="kpis"></section>
+
+    <section class="controls-card">
+      <div>
+        <h2>Ranking de avance</h2>
+        <p>La diferencia se calcula contra el promedio base Semanas 24 a 26.</p>
+      </div>
+      <div class="controls">
+        <label>Filtrar tienda
+          <select id="storeFilter"><option value="all">Todas las tiendas</option></select>
+        </label>
+        <label>Orden
+          <select id="sortFilter">
+            <option value="diff">Mayor diferencia</option>
+            <option value="units">Más unidades</option>
+            <option value="current">Mayor promedio actual</option>
+            <option value="base">Promedio base</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section id="leaderboard" class="leaderboard"></section>
+  </main>
+
+  <main id="view-general" class="view">
+    <section class="coming">
+      <span class="eyebrow">Próximamente</span>
+      <h1>Concurso General</h1>
+      <p>Listo para activar el próximo lunes con los productos: Dona Grab & Go, Cheesecake Roulet, Pan de Chocolate y Cookie Straw.</p>
+      <div class="product-row">
+        <article><img src="assets/products/Dona G&G.jpeg"><strong>Dona Grab & Go</strong><small>1 punto</small></article>
+        <article><img src="assets/products/Cheescake Roulete.jpeg"><strong>Cheesecake Roulet</strong><small>1 punto</small></article>
+        <article><img src="assets/products/Pan de Chocolate.jpeg"><strong>Pan de Chocolate</strong><small>1 punto</small></article>
+        <article><img src="assets/products/Cookie Straw.jpeg"><strong>Cookie Straw</strong><small>0.5 puntos</small></article>
+      </div>
+      <p class="note">El premio será permiso adicional con goce de sueldo para el equipo ganador, planificado del 24 de agosto al 11 de octubre.</p>
+    </section>
+  </main>
+
+  <script src="data/contest-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

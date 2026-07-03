@@ -1,18 +1,19 @@
-# Concurso de Venta Grab & Go · PWA
+# Concurso Venta Grab & Go PWA
 
 Proyecto listo para GitHub Pages.
 
-## Pestañas
-1. **Concurso Dona Grab & Go**: ranking por diferencia contra promedio base Sem 24-26.
-2. **Concurso General**: ranking por puntos acumulados de Dona G&G, Cheesecake Roulet, Pan de Chocolate y Cookie Straw.
-3. **Carga de avance**: pega CSV/Excel copiado con columnas `fecha, semana, tienda, producto, unidades`.
+## Publicación
+1. Sube todos los archivos de este ZIP en la raíz del repositorio.
+2. En GitHub: Settings > Pages > Deploy from branch > main > /(root).
+3. Espera 1 a 5 minutos.
 
-## Publicación en GitHub Pages
-1. Sube todos los archivos a un repositorio.
-2. En Settings > Pages, selecciona branch `main` y carpeta `/root`.
-3. Abre el link publicado.
+## Incluye
+- Dashboard PWA responsive.
+- Ranking premium sin pestaña de carga.
+- Datos generados desde `Base_Dona G&G`.
+- Filtro exclusivo de tiendas del portafolio.
+- Fotos de SM reencuadradas en `assets/managers_clean`.
+- Concurso General preparado como próximamente.
 
 ## Actualización de datos
-- Pega datos en la pestaña **Carga de avance**.
-- La fecha de corte se calcula con el último día cargado.
-- Los datos se guardan localmente en el navegador.
+Para actualizar el ranking con una nueva base, reemplaza `data/contest-data.js` con una nueva exportación usando la misma estructura.

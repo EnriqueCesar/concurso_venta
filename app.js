@@ -1,28 +1,85 @@
-const cfg=window.CONCURSO_CONFIG;
-const peso=Object.fromEntries(cfg.products.map(p=>[p.reporte,p.puntos]));
-const productAliases=Object.fromEntries(cfg.products.flatMap(p=>[[p.reporte.toLowerCase(),p.reporte],[p.simple.toLowerCase(),p.reporte]]));
-let rows=JSON.parse(localStorage.getItem('avanceConcursoVentas')||'[]');
-const $=s=>document.querySelector(s);
-const fmt=n=>(Number(n)||0).toLocaleString('es-MX',{maximumFractionDigits:1,minimumFractionDigits:Number.isInteger(Number(n))?0:1});
-const imgPath=s=>'assets/managers/'+s;
-function save(){localStorage.setItem('avanceConcursoVentas',JSON.stringify(rows));}
-function setTab(id){document.querySelectorAll('.tab,.panel').forEach(x=>x.classList.remove('active'));document.querySelector(`[data-tab="${id}"]`).classList.add('active');$('#'+id).classList.add('active');}
-document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>setTab(b.dataset.tab));
-function cutDate(){if(!rows.length)return 'Pendiente de carga';let d=rows.map(r=>r.fecha).sort().pop();return new Date(d+'T00:00:00').toLocaleDateString('es-MX',{day:'2-digit',month:'short',year:'numeric'});}
-function donaStats(){return cfg.stores.map(s=>{let r=rows.filter(x=>x.tienda===s.tienda&&x.producto==='Dona Grab & Go'&&x.semana>=28&&x.semana<=31);let units=r.reduce((a,b)=>a+b.unidades,0);let days=new Set(r.map(x=>x.fecha)).size;let prom=days?units/days:0;return {...s,units,days,promActual:prom,diff:prom-s.prom};});}
-function generalStats(){return cfg.stores.map(s=>{let r=rows.filter(x=>x.tienda===s.tienda&&x.semana>=28&&x.semana<=32);let units=r.reduce((a,b)=>a+b.unidades,0);let points=r.reduce((a,b)=>a+(b.unidades*(peso[b.producto]??1)),0);let max=rows.map(x=>x.fecha).sort().pop();let today=r.filter(x=>x.fecha===max).reduce((a,b)=>a+(b.unidades*(peso[b.producto]??1)),0);return {...s,units,points,today};});}
-function kpi(el,arr,mode){let leader=arr.slice().sort((a,b)=>(mode==='dona'?b.diff-a.diff:b.points-a.points))[0]||{};let total=arr.reduce((a,b)=>a+(mode==='dona'?b.units:b.points),0);let avg=arr.reduce((a,b)=>a+(mode==='dona'?b.diff:b.points),0)/(arr.length||1);el.innerHTML=`<div class="kpi"><span>Fecha de corte</span><b>${cutDate()}</b></div><div class="kpi"><span>Líder actual</span><b>${leader.tienda||'Sin avance'}</b></div><div class="kpi"><span>${mode==='dona'?'Unidades Dona':'Puntos acumulados'}</span><b>${fmt(total)}</b></div><div class="kpi"><span>${mode==='dona'?'Dif promedio portafolio':'Promedio puntos'}</span><b>${fmt(avg)}</b></div>`;}
-function renderDona(){let arr=donaStats();let sort=$('#sortDona').value;arr.sort((a,b)=>b[sort]-a[sort]);kpi($('#kpisDona'),arr,'dona');let max=Math.max(...arr.map(x=>Math.max(x.diff,0)),1);$('#rankingDona').innerHTML=arr.map((s,i)=>`<article class="card"><div class="rank">${i+1}</div><img class="manager" src="${imgPath(s.img)}"><div class="card-body"><h3 class="store">${s.tienda}</h3><div class="badge">${s.diff>=0?'▲':'▼'} Dif ${fmt(s.diff)}</div><div class="bar"><div class="fill" style="width:${Math.max(4,Math.max(0,s.diff)/max*100)}%"></div></div><div class="metrics"><div class="metric"><small>Base 24-26</small><b>${fmt(s.prom)}</b></div><div class="metric"><small>Prom 28-31</small><b>${fmt(s.promActual)}</b></div><div class="metric"><small>Unidades</small><b>${fmt(s.units)}</b></div></div></div></article>`).join('');}
-function renderGeneral(){let arr=generalStats();let sort=$('#sortGeneral').value;arr.sort((a,b)=>b[sort]-a[sort]);kpi($('#kpisGeneral'),arr,'general');let max=Math.max(...arr.map(x=>x.points),1);$('#rankingGeneral').innerHTML=arr.map((s,i)=>`<article class="card"><div class="rank">${i+1}</div><img class="manager" src="${imgPath(s.img)}"><div class="card-body"><h3 class="store">${s.tienda}</h3><div class="badge">${fmt(s.points)} pts</div><div class="bar"><div class="fill" style="width:${Math.max(4,s.points/max*100)}%"></div></div><div class="metrics"><div class="metric"><small>Puntos</small><b>${fmt(s.points)}</b></div><div class="metric"><small>Unidades</small><b>${fmt(s.units)}</b></div><div class="metric"><small>Último día</small><b>${fmt(s.today)}</b></div></div></div></article>`).join('');}
-function renderProducts(){$('#productCards').innerHTML=cfg.products.map(p=>`<div class="product"><img src="assets/products/${p.img}"><div><b>${p.simple}</b><span>${p.puntos} punto${p.puntos===1?'':'s'} por pieza</span></div></div>`).join('');}
-function renderTable(){let t=$('#dataTable');t.innerHTML='<tr><th>Fecha</th><th>Semana</th><th>Tienda</th><th>Producto</th><th>Unidades</th><th>Puntos</th></tr>'+rows.slice().sort((a,b)=>a.fecha.localeCompare(b.fecha)||a.tienda.localeCompare(b.tienda)).map(r=>`<tr><td>${r.fecha}</td><td>${r.semana}</td><td>${r.tienda}</td><td>${r.producto}</td><td>${fmt(r.unidades)}</td><td>${fmt(r.unidades*(peso[r.producto]??1))}</td></tr>`).join('');}
-function renderAll(){$('#cutDate').textContent=cutDate();renderProducts();renderDona();renderGeneral();renderTable();}
-function parseCSV(text){let lines=text.trim().split(/\r?\n/).filter(Boolean);if(!lines.length)return[];let sep=lines[0].includes('\t')?'\t':',';let head=lines.shift().split(sep).map(h=>h.trim().toLowerCase());let get=(o,names)=>names.map(n=>o[head.findIndex(h=>h.includes(n))]).find(v=>v!==undefined);
- return lines.map(l=>{let c=l.split(sep).map(x=>x.trim());let prod=(get(c,['producto','ingrediente'])||'').toLowerCase();let producto=productAliases[prod]||get(c,['producto','ingrediente']);return {fecha:get(c,['fecha','dia','día']),semana:Number(get(c,['semana','week'])||0),tienda:get(c,['tienda']),producto,unidades:Number(get(c,['unidad','venta'])||0)}}).filter(r=>r.fecha&&r.tienda&&r.producto&&r.unidades>=0);}
-$('#loadCsv').onclick=()=>{let parsed=parseCSV($('#csvInput').value);rows=rows.concat(parsed);save();renderAll();alert(`${parsed.length} filas cargadas`)};
-$('#loadSample').onclick=()=>{rows=cfg.sampleRows.slice();save();renderAll();};
-$('#clearData').onclick=()=>{if(confirm('¿Limpiar todo el avance cargado?')){rows=[];save();renderAll();}};
-$('#exportCsv').onclick=()=>{let csv='fecha,semana,tienda,producto,unidades\n'+rows.map(r=>[r.fecha,r.semana,r.tienda,r.producto,r.unidades].join(',')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='avance_concurso_ventas.csv';a.click();};
-$('#sortDona').onchange=renderDona;$('#sortGeneral').onchange=renderGeneral;
-if('serviceWorker'in navigator)navigator.serviceWorker.register('./service-worker.js');
-renderAll();
+const data = window.CONTEST_DATA || { ranking: [], summary: {} };
+const money = new Intl.NumberFormat('es-MX', { maximumFractionDigits: 1, minimumFractionDigits: 1 });
+const dateFmt = new Intl.DateTimeFormat('es-MX', { day: '2-digit', month: 'short', year: 'numeric' });
+
+const cutDate = document.getElementById('cutDate');
+const kpis = document.getElementById('kpis');
+const leaderboard = document.getElementById('leaderboard');
+const storeFilter = document.getElementById('storeFilter');
+const sortFilter = document.getElementById('sortFilter');
+
+function prettyDate(iso){
+  if(!iso) return 'Resumen actualizado a fecha: pendiente';
+  const [y,m,d] = iso.split('-').map(Number);
+  return `Resumen actualizado al ${dateFmt.format(new Date(y, m-1, d))}`;
+}
+
+function initTabs(){
+  document.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(`view-${btn.dataset.view}`).classList.add('active');
+  }));
+}
+
+function renderKpis(){
+  const s = data.summary || {};
+  const cards = [
+    ['Fecha de corte', prettyDate(data.updatedAt).replace('Resumen actualizado al ', '')],
+    ['Líder actual', s.leader || 'Pendiente'],
+    ['Dif. líder', `${s.leaderDiff > 0 ? '+' : ''}${money.format(s.leaderDiff || 0)}`],
+    ['Unidades portafolio', money.format(s.totalUnits || 0)],
+    ['Promedio actual', money.format(s.avgCurrent || 0)]
+  ];
+  kpis.innerHTML = cards.map(([label,value]) => `<article class="kpi"><small>${label}</small><strong>${value}</strong></article>`).join('');
+}
+
+function fillFilters(){
+  data.stores.forEach(store => {
+    const opt = document.createElement('option'); opt.value = store; opt.textContent = store; storeFilter.appendChild(opt);
+  });
+}
+
+function rankIcon(rank){ return rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : `#${rank}`; }
+function statusText(d){ return d > 2 ? '🔥 Alto impulso' : d > 0 ? '✅ Superando base' : d === 0 ? '➖ En línea' : '🎯 Oportunidad'; }
+
+function getRows(){
+  let rows = [...data.ranking];
+  const store = storeFilter.value;
+  if(store !== 'all') rows = rows.filter(r => r.store === store);
+  const key = sortFilter.value;
+  rows.sort((a,b) => (b[key === 'diff' ? 'difference' : key] ?? 0) - (a[key === 'diff' ? 'difference' : key] ?? 0));
+  return rows;
+}
+
+function renderLeaderboard(){
+  const rows = getRows();
+  const maxDiff = Math.max(1, ...data.ranking.map(r => Math.max(0, r.difference + 3)));
+  leaderboard.innerHTML = rows.map((r,idx) => {
+    const width = Math.max(6, Math.min(100, ((Math.max(0,r.difference)+3) / maxDiff) * 100));
+    const diffClass = r.difference >= 0 ? 'positive' : 'negative';
+    return `<article class="rank-card ${r.rank === 1 && storeFilter.value === 'all' ? 'top1' : ''}" style="animation-delay:${idx*55}ms">
+      <div class="photo-wrap"><div class="rank-badge">${rankIcon(r.rank)}</div><img src="${r.image}" alt="SM ${r.store}" loading="lazy"></div>
+      <div class="card-body">
+        <div class="meta"><small>${statusText(r.difference)}</small><h3>${r.store}</h3></div>
+        <div><div class="diff ${diffClass}">${r.difference >= 0 ? '+' : ''}${money.format(r.difference)}</div><div class="progress"><div class="bar" style="width:${width}%"></div></div></div>
+        <div class="metrics">
+          <div class="metric"><span>Base S24-26</span><strong>${money.format(r.base)}</strong></div>
+          <div class="metric"><span>Prom. actual</span><strong>${money.format(r.current)}</strong></div>
+          <div class="metric"><span>Unidades</span><strong>${money.format(r.units)}</strong></div>
+          <div class="metric"><span>Días cargados</span><strong>${r.days}</strong></div>
+        </div>
+      </div>
+    </article>`;
+  }).join('');
+}
+
+function init(){
+  cutDate.textContent = prettyDate(data.updatedAt);
+  initTabs(); renderKpis(); fillFilters(); renderLeaderboard();
+  storeFilter.addEventListener('change', renderLeaderboard);
+  sortFilter.addEventListener('change', renderLeaderboard);
+  if('serviceWorker' in navigator){ navigator.serviceWorker.register('service-worker.js').catch(()=>{}); }
+}
+init();
