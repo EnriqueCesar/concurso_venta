@@ -1,14 +1,13 @@
-# Concurso de Venta · V4 Premium
+# Concurso de Venta Grab & Go · V4.1 Final
 
-PWA lista para GitHub Pages.
+Proyecto PWA listo para GitHub Pages.
 
-## Cambios V4
-- Ranking premium con fotos desde `assets/managers_clean`.
-- Premio visible: Pizzas para Roll Out Fall.
-- Tendencia Sem 27 a Sem 32 con tabla ejecutiva.
-- Productos con hipervínculo para abrir imagen completa.
-- Concurso General con fechas 6 Julio a 9 Agosto y bonus ¿Y Si, Sí?.
-- Código limpio y responsive.
+## Ajustes incluidos
+- Botón de Términos y Condiciones en Concurso General.
+- Modal interno sin salir de la aplicación.
+- Mecánica, premio, elegibilidad, bonus y sistema de puntos.
+- Imágenes de productos más completas con visor lightbox.
+- Ranking premium y tendencia semanal.
+- PWA con manifest y service worker.
 
-## Publicación
-Subir todos los archivos a la raíz del repositorio y activar GitHub Pages desde `main / root`.
+Sube el contenido del ZIP a la raíz del repositorio y publica con GitHub Pages desde `main / root`.

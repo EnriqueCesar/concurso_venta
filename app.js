@@ -66,3 +66,17 @@ function setImageModal(){
   document.addEventListener('keydown',e=>{if(e.key==='Escape') close();});
 }
 setImageModal();
+
+
+function setTermsModal(){
+  const modal=document.querySelector('#termsModal');
+  const open=document.querySelector('#openTerms');
+  if(!modal || !open) return;
+  const closeBtn=modal.querySelector('.termsClose');
+  const close=()=>{modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');};
+  open.addEventListener('click',()=>{modal.classList.add('open'); modal.setAttribute('aria-hidden','false');});
+  closeBtn.addEventListener('click',close);
+  modal.addEventListener('click',e=>{if(e.target===modal) close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape' && modal.classList.contains('open')) close();});
+}
+setTermsModal();

@@ -40,21 +40,48 @@
 </section>
 <section id="view-general" class="view">
   <section class="generalHero">
-    <p class="eyebrow">Arranca</p><h1>Concurso General</h1><div class="dateBand"><b>6 Julio</b><span>→</span><b>9 Agosto</b></div>
-    <p><b>Tienda con mayor puntos GANA.</b> Productos participantes + puntos de impulso para activar al equipo.</p>
+    <p class="eyebrow">Arranca · Concurso General</p><h1>Concurso General</h1><div class="dateBand"><b>6 Julio</b><span>→</span><b>9 Agosto</b></div>
+    <p><b>La tienda que más puntos logre acorde a la mecánica gana para toda la plantilla.</b></p>
+    <button class="termsBtn" id="openTerms" type="button">📋 Términos y Condiciones</button>
   </section>
-  <section class="productGrid">
-    <article class="productCard"><button class="imageBtn" data-img="assets/products_clean/dona.jpg" data-title="Dona Grab & Go"><img src="assets/products_clean/dona.jpg" alt="Dona Grab & Go"><span>Abrir imagen</span></button><h3>Dona Grab & Go</h3><b>1 punto</b></article>
-    <article class="productCard"><button class="imageBtn" data-img="assets/products_clean/cheesecake.jpg" data-title="Cheesecake Roulet"><img src="assets/products_clean/cheesecake.jpg" alt="Cheesecake Roulet"><span>Abrir imagen</span></button><h3>Cheesecake Roulet</h3><b>1 punto</b></article>
-    <article class="productCard"><button class="imageBtn" data-img="assets/products_clean/pan.jpg" data-title="Pan de Chocolate"><img src="assets/products_clean/pan.jpg" alt="Pan de Chocolate"><span>Abrir imagen</span></button><h3>Pan de Chocolate</h3><b>1 punto</b></article>
-    <article class="productCard"><button class="imageBtn" data-img="assets/products_clean/cookie.jpg" data-title="Cookie Straw"><img src="assets/products_clean/cookie.jpg" alt="Cookie Straw"><span>Abrir imagen</span></button><h3>Cookie Straw</h3><b>0.5 puntos</b></article>
+  <section class="productGrid productGridPremium">
+    <article class="productCard"><button class="imageBtn" data-img="assets/products_clean/dona.jpg" data-title="Dona Grab & Go"><img src="assets/products_clean/dona.jpg" alt="Dona Grab & Go"><span>🔎 Ver completo</span></button><h3>Dona Grab & Go</h3><b>1 punto</b></article>
+    <article class="productCard"><button class="imageBtn" data-img="assets/products_clean/cheesecake.jpg" data-title="Cheesecake Roulet"><img src="assets/products_clean/cheesecake.jpg" alt="Cheesecake Roulet"><span>🔎 Ver completo</span></button><h3>Cheesecake Roulet</h3><b>1 punto</b></article>
+    <article class="productCard"><button class="imageBtn" data-img="assets/products_clean/pan.jpg" data-title="Pan de Chocolate"><img src="assets/products_clean/pan.jpg" alt="Pan de Chocolate"><span>🔎 Ver completo</span></button><h3>Pan de Chocolate</h3><b>1 punto</b></article>
+    <article class="productCard"><button class="imageBtn" data-img="assets/products_clean/cookie.jpg" data-title="Cookie Straw"><img src="assets/products_clean/cookie.jpg" alt="Cookie Straw"><span>🔎 Ver completo</span></button><h3>Cookie Straw</h3><b>0.5 puntos</b></article>
   </section>
-  <section class="rewardBox"><div><span>🏆 Premio Concurso General</span><h2>Un adicional de descanso, Aplica TODA LA PLANTILLA</h2><p>Revisa con tu Gerente para hacerlo válido del <b>24 de agosto al 11 de octubre</b>.</p></div></section>
+  <section class="rewardBox"><div><span>🏆 Premio Concurso General</span><h2>Un adicional de descanso</h2><p>La tienda con mayor puntuación gana para toda la plantilla. Revisa con tu Gerente para hacerlo válido del <b>24 de agosto al 11 de octubre</b>.</p></div></section>
   <section class="bonus"><div><span>⭐ BONUS</span><h2>5 pts adicionales</h2><p>Por cada partner que publique <b>¿Y Si, Sí?</b></p></div><div class="hashtags"><b>#OrgulloCN</b><b>#DistritoKike</b><b>#ModoMundialistaON</b></div><div class="deadline"><span>Fecha límite</span><strong>Domingo 5 de Julio · 09:00 PM</strong></div></section>
   <section class="trendPanel wide"><p class="eyebrow">Preparado</p><h2>Ranking General</h2><p class="muted">Listo para activar la base de puntos del concurso general.</p><div class="emptyChart">📈</div></section>
 </section>
 </main>
 <footer>Juntos crecemos más grande 💚</footer>
+
+<div class="termsModal" id="termsModal" aria-hidden="true">
+  <div class="termsBox" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+    <button class="termsClose" type="button" aria-label="Cerrar">×</button>
+    <p class="eyebrow">Concurso General</p>
+    <h2 id="termsTitle">Términos y Condiciones</h2>
+    <div class="termsIntro">
+      <strong>¿Y Si, Sí? Te ofrezco este alimento.</strong>
+      <strong>¿Y Si, Sí? Ganamos el concurso.</strong>
+      <span>Cada sugerencia cuenta: creamos una mejor experiencia para el cliente y sumamos al resultado del equipo.</span>
+    </div>
+    <div class="termsGrid">
+      <article><span>📅 Vigencia</span><p>Del <b>6 de julio</b> al <b>9 de agosto</b>. La tienda que más puntos logre acorde a la mecánica será la ganadora.</p></article>
+      <article><span>🏆 Premio</span><p><b>Un día adicional de descanso con goce de sueldo.</b> Revisa con tu Gerente del <b>24 de agosto al 11 de octubre</b> para hacerlo válido.</p></article>
+      <article><span>✅ Elegibilidad</span><p>Sujeto a <b>asistencia perfecta</b> durante el periodo. Cero faltas injustificadas. Partner que incumpla no aplica.</p></article>
+      <article><span>⭐ Bonus</span><p><b>5 pts</b> por cada Partner que publique <b>¿Y Si, Sí?</b> con #OrgulloCN #DistritoKike #ModoMundialistaON. Límite: <b>domingo 5 de julio · 09:00 pm</b>.</p></article>
+    </div>
+    <div class="pointsTable" aria-label="Sistema de puntos">
+      <div><b>Dona Grab & Go</b><span>1 punto</span></div>
+      <div><b>Cheesecake Roulet</b><span>1 punto</span></div>
+      <div><b>Pan de Chocolate</b><span>1 punto</span></div>
+      <div><b>Cookie Straw</b><span>0.5 puntos</span></div>
+    </div>
+    <p class="termsFooter">La tienda con mayor puntuación gana para toda la plantilla. Impulsemos una venta sugestiva positiva, cercana y con orgullo CN.</p>
+  </div>
+</div>
 <div class="modal" id="imageModal" aria-hidden="true"><div class="modalBox"><button class="modalClose" type="button" aria-label="Cerrar">×</button><h3 id="modalTitle">Producto</h3><img id="modalImg" src="" alt=""></div></div>
 <script src="data/contest-data.js"></script><script src="app.js"></script>
 </body></html>
