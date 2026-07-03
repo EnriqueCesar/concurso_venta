@@ -18,11 +18,14 @@ window.CONTEST_DATA = {
       "actual": 18.0,
       "units": 18.0,
       "diff": 13.9,
-      "pct": 335.0,
-      "trend": [
-        4.1,
-        11.1,
-        18.0
+      "pct": 335,
+      "weekly": [
+        18.0,
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     },
     {
@@ -32,11 +35,14 @@ window.CONTEST_DATA = {
       "actual": 13.0,
       "units": 13.0,
       "diff": 7.9,
-      "pct": 157.0,
-      "trend": [
-        5.1,
-        9.0,
-        13.0
+      "pct": 157,
+      "weekly": [
+        13.0,
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     },
     {
@@ -46,11 +52,14 @@ window.CONTEST_DATA = {
       "actual": 11.0,
       "units": 11.0,
       "diff": 4.5,
-      "pct": 69.0,
-      "trend": [
-        6.5,
-        8.8,
-        11.0
+      "pct": 69,
+      "weekly": [
+        11.0,
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     },
     {
@@ -60,11 +69,14 @@ window.CONTEST_DATA = {
       "actual": 8.0,
       "units": 8.0,
       "diff": 3.9,
-      "pct": 95.0,
-      "trend": [
-        4.1,
-        6.1,
-        8.0
+      "pct": 95,
+      "weekly": [
+        8.0,
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     },
     {
@@ -74,11 +86,14 @@ window.CONTEST_DATA = {
       "actual": 7.0,
       "units": 7.0,
       "diff": 3.5,
-      "pct": 99.0,
-      "trend": [
-        3.5,
-        5.3,
-        7.0
+      "pct": 99,
+      "weekly": [
+        7.0,
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     },
     {
@@ -88,11 +103,14 @@ window.CONTEST_DATA = {
       "actual": 4.0,
       "units": 4.0,
       "diff": -0.8,
-      "pct": -16.0,
-      "trend": [
-        4.8,
-        4.4,
-        4.0
+      "pct": -16,
+      "weekly": [
+        4.0,
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     },
     {
@@ -102,11 +120,14 @@ window.CONTEST_DATA = {
       "actual": 2.0,
       "units": 2.0,
       "diff": -1.1,
-      "pct": -35.0,
-      "trend": [
-        3.1,
-        2.5,
-        2.0
+      "pct": -35,
+      "weekly": [
+        2.0,
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     },
     {
@@ -116,11 +137,14 @@ window.CONTEST_DATA = {
       "actual": 1.0,
       "units": 1.0,
       "diff": -2.7,
-      "pct": -73.0,
-      "trend": [
-        3.7,
-        2.4,
-        1.0
+      "pct": -73,
+      "weekly": [
+        1.0,
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     },
     {
@@ -130,11 +154,14 @@ window.CONTEST_DATA = {
       "actual": 1.0,
       "units": 1.0,
       "diff": -3.6,
-      "pct": -78.0,
-      "trend": [
-        4.6,
-        2.8,
-        1.0
+      "pct": -78,
+      "weekly": [
+        1.0,
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     },
     {
@@ -144,12 +171,67 @@ window.CONTEST_DATA = {
       "actual": 2.0,
       "units": 2.0,
       "diff": -4.3,
-      "pct": -68.0,
-      "trend": [
-        6.3,
-        4.2,
-        2.0
+      "pct": -68,
+      "weekly": [
+        2.0,
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     }
+  ],
+  "weeklySummary": [
+    {
+      "week": 27,
+      "total": 67.0,
+      "avg": 6.7,
+      "leader": "Plaza San Marcos",
+      "leaderValue": 18.0
+    },
+    {
+      "week": 28,
+      "total": 0,
+      "avg": 0.0,
+      "leader": "Pendiente",
+      "leaderValue": 0
+    },
+    {
+      "week": 29,
+      "total": 0,
+      "avg": 0.0,
+      "leader": "Pendiente",
+      "leaderValue": 0
+    },
+    {
+      "week": 30,
+      "total": 0,
+      "avg": 0.0,
+      "leader": "Pendiente",
+      "leaderValue": 0
+    },
+    {
+      "week": 31,
+      "total": 0,
+      "avg": 0.0,
+      "leader": "Pendiente",
+      "leaderValue": 0
+    },
+    {
+      "week": 32,
+      "total": 0,
+      "avg": 0.0,
+      "leader": "Pendiente",
+      "leaderValue": 0
+    }
+  ],
+  "weeks": [
+    27,
+    28,
+    29,
+    30,
+    31,
+    32
   ]
 };
