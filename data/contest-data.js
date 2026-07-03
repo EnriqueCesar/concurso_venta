@@ -113,10 +113,10 @@ window.CONTEST_DATA = {
       "current": 18.0,
       "difference": 13.9,
       "units": 18.0,
-      "days": 1,
       "weeks": [
         27
       ],
+      "trend": "estable",
       "rank": 1
     },
     {
@@ -127,10 +127,10 @@ window.CONTEST_DATA = {
       "current": 13.0,
       "difference": 7.9,
       "units": 13.0,
-      "days": 1,
       "weeks": [
         27
       ],
+      "trend": "estable",
       "rank": 2
     },
     {
@@ -141,10 +141,10 @@ window.CONTEST_DATA = {
       "current": 11.0,
       "difference": 4.5,
       "units": 11.0,
-      "days": 1,
       "weeks": [
         27
       ],
+      "trend": "estable",
       "rank": 3
     },
     {
@@ -155,10 +155,10 @@ window.CONTEST_DATA = {
       "current": 8.0,
       "difference": 3.9,
       "units": 8.0,
-      "days": 1,
       "weeks": [
         27
       ],
+      "trend": "estable",
       "rank": 4
     },
     {
@@ -169,10 +169,10 @@ window.CONTEST_DATA = {
       "current": 7.0,
       "difference": 3.5,
       "units": 7.0,
-      "days": 1,
       "weeks": [
         27
       ],
+      "trend": "estable",
       "rank": 5
     },
     {
@@ -183,10 +183,10 @@ window.CONTEST_DATA = {
       "current": 4.0,
       "difference": -0.8,
       "units": 4.0,
-      "days": 1,
       "weeks": [
         27
       ],
+      "trend": "estable",
       "rank": 6
     },
     {
@@ -197,10 +197,10 @@ window.CONTEST_DATA = {
       "current": 2.0,
       "difference": -1.1,
       "units": 2.0,
-      "days": 1,
       "weeks": [
         27
       ],
+      "trend": "estable",
       "rank": 7
     },
     {
@@ -211,10 +211,10 @@ window.CONTEST_DATA = {
       "current": 1.0,
       "difference": -2.7,
       "units": 1.0,
-      "days": 1,
       "weeks": [
         27
       ],
+      "trend": "estable",
       "rank": 8
     },
     {
@@ -225,10 +225,10 @@ window.CONTEST_DATA = {
       "current": 1.0,
       "difference": -3.6,
       "units": 1.0,
-      "days": 1,
       "weeks": [
         27
       ],
+      "trend": "estable",
       "rank": 9
     },
     {
@@ -239,18 +239,20 @@ window.CONTEST_DATA = {
       "current": 2.0,
       "difference": -4.3,
       "units": 2.0,
-      "days": 1,
       "weeks": [
         27
       ],
+      "trend": "estable",
       "rank": 10
     }
   ],
   "summary": {
-    "totalUnits": 67.0,
-    "avgBase": 4.6,
-    "avgCurrent": 6.7,
     "leader": "Plaza San Marcos",
-    "leaderDiff": 13.9
+    "leaderDiff": 13.9,
+    "totalUnits": 67.0,
+    "avgCurrent": 6.7,
+    "avgBase": 4.6,
+    "participatingStores": 10,
+    "loadedDays": 1
   }
 };
