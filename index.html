@@ -3,103 +3,55 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#006241" />
-  <title>Concurso de Venta · Dona Grab & Go</title>
+  <title>Concurso de Venta | Portafolio</title>
   <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#063f2b" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand"><span class="brand-mark">★</span><div><strong>Concurso de Venta</strong><small>Portafolio · Ranking Ejecutivo</small></div></div>
-    <nav class="tabs" aria-label="Secciones">
-      <button class="tab active" data-view="dona">Dona Grab & Go</button>
-      <button class="tab" data-view="general">Concurso General</button>
-    </nav>
-  </header>
-
-  <main id="view-dona" class="view active">
-    <section class="hero executive">
-      <div class="hero-copy">
-        <span class="eyebrow">Concurso 1 · Ranking dinámico</span>
-        <h1>Concurso Dona Grab & Go</h1>
-        <p>Del <strong>1 de julio al 9 de agosto</strong>. Gana la tienda que más supere su promedio base de Semanas 24 a 26.</p>
-        <div class="hero-actions">
-          <span id="cutDate" class="pill">Resumen actualizado a fecha</span>
-          <span class="pill soft">Solo tiendas del portafolio</span>
-          <span class="pill ghost">Base: Dona G&G</span>
-        </div>
-      </div>
-      <aside class="product-card compact-product">
-        <img src="assets/products/Dona G&G.jpeg" alt="Dona Grab & Go">
-        <div><strong>Dona G&G</strong><small>Medición por unidad vendida</small></div>
-      </aside>
-    </section>
-
-    <section class="kpis" id="kpis"></section>
-
-    <section class="insight-grid">
-      <article class="panel podium-panel">
-        <div class="section-head"><div><span class="eyebrow">Top actual</span><h2>Podio ejecutivo</h2></div><small>Mayor diferencia vs base</small></div>
-        <div id="podium" class="podium"></div>
-      </article>
-      <article class="panel chart-panel">
-        <div class="section-head"><div><span class="eyebrow">Gráfica</span><h2>Diferencia por tienda</h2></div><small>Lectura rápida de foco</small></div>
-        <div id="barChart" class="bar-chart"></div>
-      </article>
-    </section>
-
-    <section class="controls-card">
-      <div>
-        <h2>Ranking de avance</h2>
-        <p>El ranking ordena la diferencia entre promedio actual y promedio base.</p>
-      </div>
-      <div class="controls">
-        <label>Filtrar tienda
-          <select id="storeFilter"><option value="all">Todas las tiendas</option></select>
-        </label>
-        <label>Orden
-          <select id="sortFilter">
-            <option value="diff">Mayor diferencia</option>
-            <option value="units">Más unidades</option>
-            <option value="current">Mayor promedio actual</option>
-            <option value="base">Promedio base</option>
-          </select>
-        </label>
-      </div>
-    </section>
-
-    <section id="leaderboard" class="leaderboard executive-list"></section>
-  </main>
-
-  <main id="view-general" class="view">
-    <section class="hero executive">
-      <div class="hero-copy">
-        <span class="eyebrow">Concurso 2 · Próximamente</span>
-        <h1>Concurso General</h1>
-        <p>Preparado para activar con ranking por puntos. Cada tienda acumulará puntos diarios según las unidades vendidas por producto.</p>
-        <div class="hero-actions"><span class="pill">Inicio programado: 6 de julio</span><span class="pill soft">Corte: 9 de agosto</span></div>
-      </div>
-      <aside class="product-card compact-product product-stack"><img src="assets/products/Cookie Straw.jpeg" alt="Productos del concurso"><div><strong>Ranking por puntos</strong><small>Listo para integrar base</small></div></aside>
-    </section>
-    <section class="insight-grid general-grid">
-      <article class="panel chart-panel">
-        <div class="section-head"><div><span class="eyebrow">Gráfica</span><h2>Puntos por tienda</h2></div><small>Se activará al cargar base</small></div>
-        <div class="empty-chart">Próximamente · Ranking General</div>
-      </article>
-      <article class="panel">
-        <div class="section-head"><div><span class="eyebrow">Productos</span><h2>Tabla de puntos</h2></div><small>Reglas simples</small></div>
-        <div class="score-list">
-          <div><img src="assets/products/Dona G&G.jpeg"><span>Dona Grab & Go</span><strong>1 punto</strong></div>
-          <div><img src="assets/products/Cheescake Roulete.jpeg"><span>Cheesecake Roulet</span><strong>1 punto</strong></div>
-          <div><img src="assets/products/Pan de Chocolate.jpeg"><span>Pan de Chocolate</span><strong>1 punto</strong></div>
-          <div><img src="assets/products/Cookie Straw.jpeg"><span>Cookie Straw</span><strong>0.5 puntos</strong></div>
-        </div>
-      </article>
-    </section>
-    <section class="note-panel">Premio Concurso Portafolio: el equipo ganador gozará de un día adicional con goce de sueldo, planificado con el Gerente de Tienda del 24 de agosto al 11 de octubre.</section>
-  </main>
-
-  <script src="data/contest-data.js"></script>
-  <script src="app.js"></script>
-</body>
-</html>
+<header class="topbar">
+  <div class="brand"><div class="brandMark">★</div><div><strong>Concurso de Venta</strong><span>Portafolio Enrique César Flores</span></div></div>
+  <nav class="tabs" aria-label="Navegación">
+    <button class="tab active" data-view="dona">Dona Grab & Go</button>
+    <button class="tab" data-view="general">Concurso General</button>
+  </nav>
+</header>
+<main>
+<section id="view-dona" class="view active">
+  <section class="hero">
+    <div class="heroText">
+      <p class="eyebrow">1° Concurso · Ranking Portafolio</p>
+      <h1>Dona Grab & Go</h1>
+      <p class="summary">Del <b>1 de julio</b> al <b>9 de agosto</b>. Gana la tienda que más supere su promedio base de <b>Semanas 24 a 26</b>.</p>
+    </div>
+    <div class="heroCard"><span>Actualizado</span><strong id="updatedLabel">--</strong><small>Última fecha cargada</small></div>
+  </section>
+  <section class="kpis" id="kpis"></section>
+  <section class="layoutGrid">
+    <div class="rankingPanel">
+      <div class="sectionHead"><div><p class="eyebrow">Ranking Premium</p><h2>Mayor diferencia vs. Sem 24-26</h2></div><select id="sortMode"><option value="diff">Ordenar por diferencia</option><option value="units">Ordenar por unidades</option><option value="actual">Ordenar por promedio actual</option></select></div>
+      <div class="cards" id="cards"></div>
+    </div>
+    <aside class="trendPanel">
+      <p class="eyebrow">Tendencia</p><h2>Evolución del concurso</h2><div id="chart" class="chart"></div><div id="leaderMini" class="leaderMini"></div>
+    </aside>
+  </section>
+</section>
+<section id="view-general" class="view">
+  <section class="generalHero">
+    <p class="eyebrow">Arranca</p><h1>Concurso General</h1><div class="dateBand"><b>6 Julio</b><span>→</span><b>9 Agosto</b></div>
+    <p>Productos participantes + puntos de impulso para activar al equipo.</p>
+  </section>
+  <section class="productGrid">
+    <article class="productCard"><img src="assets/products_clean/dona.jpg"><h3>Dona Grab & Go</h3><b>1 punto</b></article>
+    <article class="productCard"><img src="assets/products_clean/cheesecake.jpg"><h3>Cheesecake Roulet</h3><b>1 punto</b></article>
+    <article class="productCard"><img src="assets/products_clean/pan.jpg"><h3>Pan de Chocolate</h3><b>1 punto</b></article>
+    <article class="productCard"><img src="assets/products_clean/cookie.jpg"><h3>Cookie Straw</h3><b>0.5 puntos</b></article>
+  </section>
+  <section class="bonus"><div><span>⭐ BONUS</span><h2>5 pts adicionales</h2><p>Por cada partner que publique <b>¿Y Si, Sí?</b></p></div><div class="hashtags"><b>#OrgulloCN</b><b>#DistritoKike</b><b>#ModoMundialistaON</b></div><div class="deadline"><span>Fecha límite</span><strong>Domingo 5 de Julio · 09:00 PM</strong></div></section>
+  <section class="trendPanel wide"><p class="eyebrow">Preparado</p><h2>Ranking General</h2><p class="muted">Listo para activar la base de puntos del concurso general.</p><div class="emptyChart">📈</div></section>
+</section>
+</main>
+<footer>Juntos crecemos más grande 💚</footer>
+<script src="data/contest-data.js"></script><script src="app.js"></script>
+</body></html>

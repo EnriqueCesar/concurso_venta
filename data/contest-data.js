@@ -1,258 +1,155 @@
 window.CONTEST_DATA = {
-  "updatedAt": "2026-07-01",
+  "stats": {
+    "updated": "01 Jul 2026",
+    "leader": "Plaza San Marcos",
+    "avgBase": 4.6,
+    "avgActual": 6.7,
+    "avgDiff": 2.1,
+    "units": 67.0,
+    "dates": [
+      "2026-07-01"
+    ]
+  },
   "stores": [
-    "Cc Coacalco",
-    "Cosmopol",
-    "Cosmopol N1",
-    "Galerias Perinorte",
-    "Izcalli Mega Df",
-    "Luna Park",
-    "Patio Ecatepec",
-    "Plaza Las Flores",
-    "Plaza San Marcos",
-    "San Miguel Izcalli"
-  ],
-  "records": [
-    {
-      "division": "Centro Norte",
-      "dm": "Nancy Carolina Rodriguez Medina",
-      "store": "Galerias Perinorte",
-      "week": 27,
-      "date": "2026-07-01",
-      "ingredient": "Dona G&G",
-      "units": 2.0
-    },
-    {
-      "division": "Centro Norte",
-      "dm": "Enrique César Flores",
-      "store": "Izcalli Mega Df",
-      "week": 27,
-      "date": "2026-07-01",
-      "ingredient": "Dona G&G",
-      "units": 13.0
-    },
-    {
-      "division": "Centro Norte",
-      "dm": "Enrique César Flores",
-      "store": "Plaza San Marcos",
-      "week": 27,
-      "date": "2026-07-01",
-      "ingredient": "Dona G&G",
-      "units": 18.0
-    },
-    {
-      "division": "Centro Norte",
-      "dm": "Enrique César Flores",
-      "store": "Luna Park",
-      "week": 27,
-      "date": "2026-07-01",
-      "ingredient": "Dona G&G",
-      "units": 8.0
-    },
-    {
-      "division": "Centro Norte",
-      "dm": "Enrique César Flores",
-      "store": "Cc Coacalco",
-      "week": 27,
-      "date": "2026-07-01",
-      "ingredient": "Dona G&G",
-      "units": 1.0
-    },
-    {
-      "division": "Centro Norte",
-      "dm": "Enrique César Flores",
-      "store": "Plaza Las Flores",
-      "week": 27,
-      "date": "2026-07-01",
-      "ingredient": "Dona G&G",
-      "units": 1.0
-    },
-    {
-      "division": "Centro Norte",
-      "dm": "Enrique César Flores",
-      "store": "Patio Ecatepec",
-      "week": 27,
-      "date": "2026-07-01",
-      "ingredient": "Dona G&G",
-      "units": 11.0
-    },
-    {
-      "division": "Centro Norte",
-      "dm": "Enrique César Flores",
-      "store": "Cosmopol",
-      "week": 27,
-      "date": "2026-07-01",
-      "ingredient": "Dona G&G",
-      "units": 7.0
-    },
-    {
-      "division": "Centro Norte",
-      "dm": "Enrique César Flores",
-      "store": "San Miguel Izcalli",
-      "week": 27,
-      "date": "2026-07-01",
-      "ingredient": "Dona G&G",
-      "units": 4.0
-    },
-    {
-      "division": "Centro Norte",
-      "dm": "Enrique César Flores",
-      "store": "Cosmopol N1",
-      "week": 27,
-      "date": "2026-07-01",
-      "ingredient": "Dona G&G",
-      "units": 2.0
-    }
-  ],
-  "ranking": [
     {
       "store": "Plaza San Marcos",
-      "slug": "sanmarcos",
       "image": "assets/managers_clean/SM_SanMarcos.jpeg",
       "base": 4.1,
-      "current": 18.0,
-      "difference": 13.9,
+      "actual": 18.0,
       "units": 18.0,
-      "weeks": [
-        27
-      ],
-      "trend": "estable",
-      "rank": 1
+      "diff": 13.9,
+      "pct": 335.0,
+      "trend": [
+        4.1,
+        11.1,
+        18.0
+      ]
     },
     {
       "store": "Izcalli Mega Df",
-      "slug": "izcallimega",
       "image": "assets/managers_clean/SM_IzcalliMega.jpeg",
       "base": 5.1,
-      "current": 13.0,
-      "difference": 7.9,
+      "actual": 13.0,
       "units": 13.0,
-      "weeks": [
-        27
-      ],
-      "trend": "estable",
-      "rank": 2
+      "diff": 7.9,
+      "pct": 157.0,
+      "trend": [
+        5.1,
+        9.0,
+        13.0
+      ]
     },
     {
       "store": "Patio Ecatepec",
-      "slug": "patioecatepec",
       "image": "assets/managers_clean/SM_PatioEcatepec.jpeg",
       "base": 6.5,
-      "current": 11.0,
-      "difference": 4.5,
+      "actual": 11.0,
       "units": 11.0,
-      "weeks": [
-        27
-      ],
-      "trend": "estable",
-      "rank": 3
+      "diff": 4.5,
+      "pct": 69.0,
+      "trend": [
+        6.5,
+        8.8,
+        11.0
+      ]
     },
     {
       "store": "Luna Park",
-      "slug": "lunapark",
       "image": "assets/managers_clean/SM_LunaPark.jpeg",
       "base": 4.1,
-      "current": 8.0,
-      "difference": 3.9,
+      "actual": 8.0,
       "units": 8.0,
-      "weeks": [
-        27
-      ],
-      "trend": "estable",
-      "rank": 4
+      "diff": 3.9,
+      "pct": 95.0,
+      "trend": [
+        4.1,
+        6.1,
+        8.0
+      ]
     },
     {
       "store": "Cosmopol",
-      "slug": "cosmopol",
       "image": "assets/managers_clean/SM_Cosmopol.jpeg",
       "base": 3.5,
-      "current": 7.0,
-      "difference": 3.5,
+      "actual": 7.0,
       "units": 7.0,
-      "weeks": [
-        27
-      ],
-      "trend": "estable",
-      "rank": 5
+      "diff": 3.5,
+      "pct": 99.0,
+      "trend": [
+        3.5,
+        5.3,
+        7.0
+      ]
     },
     {
       "store": "San Miguel Izcalli",
-      "slug": "sanmiguelizcalli",
       "image": "assets/managers_clean/SM_SanMiguelIzcalli.jpeg",
       "base": 4.8,
-      "current": 4.0,
-      "difference": -0.8,
+      "actual": 4.0,
       "units": 4.0,
-      "weeks": [
-        27
-      ],
-      "trend": "estable",
-      "rank": 6
+      "diff": -0.8,
+      "pct": -16.0,
+      "trend": [
+        4.8,
+        4.4,
+        4.0
+      ]
     },
     {
       "store": "Cosmopol N1",
-      "slug": "cosmopoln1",
       "image": "assets/managers_clean/SM_CosmopolN1.jpeg",
       "base": 3.1,
-      "current": 2.0,
-      "difference": -1.1,
+      "actual": 2.0,
       "units": 2.0,
-      "weeks": [
-        27
-      ],
-      "trend": "estable",
-      "rank": 7
+      "diff": -1.1,
+      "pct": -35.0,
+      "trend": [
+        3.1,
+        2.5,
+        2.0
+      ]
     },
     {
       "store": "Cc Coacalco",
-      "slug": "coacalco",
       "image": "assets/managers_clean/SM_Coacalco.jpeg",
       "base": 3.7,
-      "current": 1.0,
-      "difference": -2.7,
+      "actual": 1.0,
       "units": 1.0,
-      "weeks": [
-        27
-      ],
-      "trend": "estable",
-      "rank": 8
+      "diff": -2.7,
+      "pct": -73.0,
+      "trend": [
+        3.7,
+        2.4,
+        1.0
+      ]
     },
     {
       "store": "Plaza Las Flores",
-      "slug": "lasflores",
       "image": "assets/managers_clean/SM_LasFlores.jpeg",
       "base": 4.6,
-      "current": 1.0,
-      "difference": -3.6,
+      "actual": 1.0,
       "units": 1.0,
-      "weeks": [
-        27
-      ],
-      "trend": "estable",
-      "rank": 9
+      "diff": -3.6,
+      "pct": -78.0,
+      "trend": [
+        4.6,
+        2.8,
+        1.0
+      ]
     },
     {
       "store": "Galerias Perinorte",
-      "slug": "galeriasperinorte",
       "image": "assets/managers_clean/SM_GaleriasPerinorte.jpeg",
       "base": 6.3,
-      "current": 2.0,
-      "difference": -4.3,
+      "actual": 2.0,
       "units": 2.0,
-      "weeks": [
-        27
-      ],
-      "trend": "estable",
-      "rank": 10
+      "diff": -4.3,
+      "pct": -68.0,
+      "trend": [
+        6.3,
+        4.2,
+        2.0
+      ]
     }
-  ],
-  "summary": {
-    "leader": "Plaza San Marcos",
-    "leaderDiff": 13.9,
-    "totalUnits": 67.0,
-    "avgCurrent": 6.7,
-    "avgBase": 4.6,
-    "participatingStores": 10,
-    "loadedDays": 1
-  }
+  ]
 };
