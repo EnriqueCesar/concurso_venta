@@ -1,15 +1,25 @@
 {
-  "name": "Concurso Venta Grab & Go",
-  "short_name": "Concurso Venta",
-  "start_url": "./",
+  "name": "Concurso Venta CN | Dona G&G y General",
+  "short_name": "Concurso CN",
+  "description": "Ranking ejecutivo de Concurso Dona Grab & Go y Concurso General del portafolio autorizado.",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#faf7ef",
   "theme_color": "#063f2b",
   "icons": [
     {
-      "src": "assets/products_clean/dona.jpg",
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
       "sizes": "512x512",
-      "type": "image/jpeg"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
