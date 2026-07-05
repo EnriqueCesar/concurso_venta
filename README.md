@@ -1,21 +1,30 @@
-# Concurso de Venta Grab & Go · V4.1 Final
+# Concurso Venta CN
 
-Proyecto PWA listo para GitHub Pages.
+Versión: `v4-2026-07-04-fix-pages`
 
-## Ajustes incluidos
-- Botón de Términos y Condiciones en Concurso General.
-- Modal interno sin salir de la aplicación.
-- Mecánica, premio, elegibilidad, bonus y sistema de puntos.
-- Imágenes de productos más completas con visor lightbox.
-- Ranking premium y tendencia semanal.
-- PWA con manifest y service worker.
+Sitio estático listo para GitHub Pages desde `main` / `/root`.
 
-Sube el contenido del ZIP a la raíz del repositorio y publica con GitHub Pages desde `main / root`.
+## Publicación
 
-## Versión actualizada al 4 de julio
-- Base Dona G&G alimentada desde `Base_Dona G&G` del Excel.
+Subir a la raíz del repositorio únicamente:
+
+- `index.html`
+- `app.js`
+- `styles.css`
+- `manifest.json`
+- `service-worker.js`
+- `.nojekyll`
+- `README.md`
+- `data/`
+- `assets/`
+
+## Cambios de esta versión
+
+- Datos Dona G&G actualizados al 4 de julio desde `Base_Dona G&G`.
 - Portafolio limitado a las 10 tiendas autorizadas.
-- Métricas visibles: Unidades Totales Periodo, USD Real, Objetivo USD y USD Real vs Objetivo.
-- Ranking principal basado en diferencia USD Real vs Objetivo.
-- Fechas sin dato o unidades vacías no cuentan como día válido.
-- Cache PWA actualizado: `concurso-venta-usd-real-v3-2026-07-04`.
+- Métricas conservadas: Unidades Totales Periodo, Días válidos, USD Real, Objetivo USD y USD Real vs Objetivo.
+- Fechas sin dato y unidades vacías no cuentan como cero ni como día válido.
+- Limpieza de imágenes duplicadas no conectadas.
+- `manifest.json` corregido con `start_url: "./"` y `scope: "./"`.
+- `service-worker.js` actualizado con cache `concurso-venta-v4-2026-07-04-fix-pages` y rutas existentes.
+- `.nojekyll` incluido en raíz para GitHub Pages.

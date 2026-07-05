@@ -26,11 +26,11 @@ window.CONTEST_DATA = {
       "pct": 257.1,
       "weekly": [
         50.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     },
     {
@@ -44,11 +44,11 @@ window.CONTEST_DATA = {
       "pct": 147.4,
       "weekly": [
         23.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     },
     {
@@ -62,11 +62,11 @@ window.CONTEST_DATA = {
       "pct": 69.2,
       "weekly": [
         44.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     },
     {
@@ -80,11 +80,11 @@ window.CONTEST_DATA = {
       "pct": 70.7,
       "weekly": [
         21.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     },
     {
@@ -98,11 +98,11 @@ window.CONTEST_DATA = {
       "pct": 55.4,
       "weekly": [
         23.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     },
     {
@@ -116,11 +116,11 @@ window.CONTEST_DATA = {
       "pct": 37.6,
       "weekly": [
         19.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     },
     {
@@ -134,11 +134,11 @@ window.CONTEST_DATA = {
       "pct": 16.3,
       "weekly": [
         22.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     },
     {
@@ -152,11 +152,11 @@ window.CONTEST_DATA = {
       "pct": 17.6,
       "weekly": [
         24.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     },
     {
@@ -170,11 +170,11 @@ window.CONTEST_DATA = {
       "pct": 9.8,
       "weekly": [
         9.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     },
     {
@@ -188,11 +188,11 @@ window.CONTEST_DATA = {
       "pct": -2.7,
       "weekly": [
         14.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     }
   ],
@@ -206,35 +206,35 @@ window.CONTEST_DATA = {
     },
     {
       "week": 28,
-      "total": 0.0,
+      "total": 0,
       "avg": 0.0,
       "leader": "Pendiente",
       "leaderValue": 0.0
     },
     {
       "week": 29,
-      "total": 0.0,
+      "total": 0,
       "avg": 0.0,
       "leader": "Pendiente",
       "leaderValue": 0.0
     },
     {
       "week": 30,
-      "total": 0.0,
+      "total": 0,
       "avg": 0.0,
       "leader": "Pendiente",
       "leaderValue": 0.0
     },
     {
       "week": 31,
-      "total": 0.0,
+      "total": 0,
       "avg": 0.0,
       "leader": "Pendiente",
       "leaderValue": 0.0
     },
     {
       "week": 32,
-      "total": 0.0,
+      "total": 0,
       "avg": 0.0,
       "leader": "Pendiente",
       "leaderValue": 0.0
@@ -266,6 +266,7 @@ window.CONTEST_DATA = {
     "maxDate": "2026-07-04",
     "rawRowsAuthorized": 33,
     "duplicatesIgnored": 0,
+    "invalidRowsIgnored": 0,
     "calculation": "USD Real = Unidades Totales Periodo / días con dato válido. Ranking por USD Real vs Objetivo USD. Celdas vacías o sin fecha no cuentan como día válido."
   }
 };

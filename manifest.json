@@ -2,7 +2,7 @@
   "name": "Concurso Venta CN | Dona G&G y General",
   "short_name": "Concurso CN",
   "description": "Ranking ejecutivo de Concurso Dona Grab & Go y Concurso General del portafolio autorizado.",
-  "start_url": "./index.html",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
