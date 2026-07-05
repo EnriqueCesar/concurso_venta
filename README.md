@@ -11,3 +11,11 @@ Proyecto PWA listo para GitHub Pages.
 - PWA con manifest y service worker.
 
 Sube el contenido del ZIP a la raíz del repositorio y publica con GitHub Pages desde `main / root`.
+
+## Versión actualizada al 4 de julio
+- Base Dona G&G alimentada desde `Base_Dona G&G` del Excel.
+- Portafolio limitado a las 10 tiendas autorizadas.
+- Métricas visibles: Unidades Totales Periodo, USD Real, Objetivo USD y USD Real vs Objetivo.
+- Ranking principal basado en diferencia USD Real vs Objetivo.
+- Fechas sin dato o unidades vacías no cuentan como día válido.
+- Cache PWA actualizado: `concurso-venta-usd-real-v3-2026-07-04`.

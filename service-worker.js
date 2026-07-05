@@ -1,4 +1,4 @@
-const CACHE = 'concurso-venta-usd-real-v2-2026-07-03';
+const CACHE = 'concurso-venta-usd-real-v3-2026-07-04';
 const ASSETS = [
   "./",
   "index.html",
