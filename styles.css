@@ -47,3 +47,24 @@ main{max-width:1800px;margin:auto;padding:28px 5vw 60px}.view{display:none}.view
 .productCard img{transition:.25s ease}
 .termsGrid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
 @media(display-mode:standalone){.topbar{padding-top:22px}}
+
+/* vNext ajuste · contraste ejecutivo para etiquetas de bonus */
+.deadline span,
+.bonus .deadline span,
+.prideBonus .deadline span{
+  color:#006241 !important;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.deadline strong,
+.bonus .deadline strong,
+.prideBonus .deadline strong{
+  color:#004C3F;
+}
+.prideBonus .deadline small{
+  color:#006241 !important;
+}
+.miniStats{grid-template-columns:1fr 1fr;}
+.miniStats div:nth-child(1){grid-column:span 2;}
+@media(max-width:650px){.miniStats{grid-template-columns:1fr}.miniStats div:nth-child(1){grid-column:span 1}.deadline span{font-size:12px}}

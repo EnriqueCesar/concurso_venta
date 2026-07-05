@@ -1,6 +1,7 @@
 const DATA = window.CONTEST_DATA;
 const $ = s => document.querySelector(s);
 const money = n => Number(n || 0).toLocaleString('es-MX',{maximumFractionDigits:1});
+const usd = n => Number(n || 0).toLocaleString('es-MX',{minimumFractionDigits:2,maximumFractionDigits:2});
 let stores = [...DATA.stores];
 
 function setTabs(){
@@ -13,7 +14,7 @@ function setTabs(){
 }
 function renderKpis(){
   $('#updatedLabel').textContent=DATA.stats.updated;
-  const k=[['Actualizado',DATA.stats.updated],['Líder',DATA.stats.leader],['Prom. Base',money(DATA.stats.avgBase)],['Prom. Actual',money(DATA.stats.avgActual)],['Diferencia',`${DATA.stats.avgDiff>=0?'+':''}${money(DATA.stats.avgDiff)}`],['Unidades',money(DATA.stats.units)]];
+  const k=[['Actualizado',DATA.stats.updated],['Líder',DATA.stats.leader],['Objetivo Prom.',money(DATA.stats.avgBase)],['USD Real Prom.',usd(DATA.stats.avgActual)],['USD vs Objetivo',`${DATA.stats.avgDiff>=0?'+':''}${usd(DATA.stats.avgDiff)}`],['Unidades Periodo',money(DATA.stats.units)]];
   $('#kpis').innerHTML=k.map(x=>`<article class="kpi"><span>${x[0]}</span><strong>${x[1]}</strong></article>`).join('');
 }
 function medal(i){return i===0?'🥇':i===1?'🥈':i===2?'🥉':i+1;}
@@ -23,14 +24,14 @@ function renderCards(list=stores){
     const down=s.diff<0; const width=Math.max(8,Math.min(100,Math.abs(s.diff)/max*100));
     return `<article class="card ${i<3?'podium':''} ${i===0?'top1':''} ${down?'negative':''}">
       <div class="photoWrap"><img src="${s.image}" alt="${s.store}"><div class="rank">${medal(i)}</div></div>
-      <div class="cardBody"><h3>${s.store}</h3><div class="diff ${down?'down':''}">${s.diff>=0?'+':''}${money(s.diff)}</div>
+      <div class="cardBody"><h3>${s.store}</h3><div class="diff ${down?'down':''}">${s.diff>=0?'+':''}${usd(s.diff)}</div>
       <div class="bar"><i style="width:${width}%"></i></div>
-      <div class="miniStats"><div><span>Sem 24-26</span><b>${money(s.base)}</b></div><div><span>Actual</span><b>${money(s.actual)}</b></div></div>
-      <div class="pct ${down?'down':''}">${down?'▼':'▲'} ${s.pct>=0?'+':''}${money(s.pct)}% vs. base</div></div></article>`;
+      <div class="miniStats"><div><span>Unidades Totales Periodo</span><b>${money(s.units)}</b></div><div><span>Días válidos</span><b>${s.days||0}</b></div><div><span>USD Real</span><b>${usd(s.actual)}</b></div><div><span>Objetivo USD</span><b>${money(s.base)}</b></div></div>
+      <div class="pct ${down?'down':''}">${down?'▼':'▲'} ${s.pct>=0?'+':''}${money(s.pct)}% · USD Real vs Objetivo</div></div></article>`;
   }).join('');
   renderChart(list.slice(0,5)); renderTrendTable(); renderLeader(list[0]);
 }
-function renderLeader(s){$('#leaderMini').innerHTML=`<span>Líder actual</span><br><strong>${s.store}</strong><p>Diferencia: ${s.diff>=0?'+':''}${money(s.diff)} vs. Sem 24-26</p>`;}
+function renderLeader(s){$('#leaderMini').innerHTML=`<span>Líder actual</span><br><strong>${s.store}</strong><p>USD Real: ${usd(s.actual)} · Objetivo USD: ${money(s.base)} · Diferencia: ${s.diff>=0?'+':''}${usd(s.diff)}</p>`;}
 function renderChart(list){
   const w=420,h=220,p=34; const vals=DATA.weeklySummary.map(x=>x.avg); const min=Math.min(0,...vals), max=Math.max(1,...vals);
   const x=i=>p+i*((w-p*2)/(vals.length-1||1)); const y=v=>h-p-((v-min)/(max-min||1))*(h-p*2); const pts=vals.map((v,i)=>`${x(i)},${y(v)}`).join(' ');
@@ -49,7 +50,7 @@ function renderTrendTable(){
     return `<article class="weekCard ${total?'':'pending'}"><div class="weekTop"><strong>Sem ${w.week}</strong><span>${status}</span></div><div class="weekBar"><i style="width:${width}%"></i></div><div class="weekMeta"><b>${money(total)}</b><small>unidades</small></div><p>Líder: <b>${w.leader}</b>${w.leaderValue?` · ${money(w.leaderValue)}`:''}</p></article>`;
   }).join('')}</div>`;
 }
-function sortBy(mode){stores.sort((a,b)=> mode==='units'?b.units-a.units: mode==='actual'?b.actual-a.actual:b.diff-a.diff); renderCards(stores);} 
+function sortBy(mode){stores.sort((a,b)=> mode==='units'?b.units-a.units: mode==='actual'?b.actual-a.actual:(b.diff-a.diff)||(b.units-a.units)); renderCards(stores);} 
 setTabs(); renderKpis(); renderCards(); $('#sortMode').addEventListener('change',e=>sortBy(e.target.value));
 if('serviceWorker' in navigator){navigator.serviceWorker.register('service-worker.js').catch(()=>{});}
 
