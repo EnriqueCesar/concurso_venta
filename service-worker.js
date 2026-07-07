@@ -1,4 +1,4 @@
-const CACHE = 'concurso-venta-v4-2026-07-04-fix-pages';
+const CACHE = 'concurso-venta-v5-2026-07-05-db-update';
 const ASSETS = [
   "./",
   "index.html",

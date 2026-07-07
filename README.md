@@ -1,6 +1,6 @@
 # Concurso Venta CN
 
-Versión: `v4-2026-07-04-fix-pages`
+Versión: `v5-2026-07-05-db-update`
 
 Sitio estático listo para GitHub Pages desde `main` / `/root`.
 
@@ -20,11 +20,14 @@ Subir a la raíz del repositorio únicamente:
 
 ## Cambios de esta versión
 
-- Datos Dona G&G actualizados al 4 de julio desde `Base_Dona G&G`.
+- Nueva versión declarada: `v5-2026-07-05-db-update`.
+- Fecha de actualización de base: `05/07/2026`.
+- Archivo fuente utilizado: `Base_Concurso_Dona&Items.xlsx`.
+- Hoja utilizada: `Base_Dona G&G`.
+- Sección impactada: `Concurso Dona G&G` / Dona Grab & Go.
+- Datos Dona G&G actualizados al 5 de julio de 2026 desde `Base_Dona G&G`.
 - Portafolio limitado a las 10 tiendas autorizadas.
 - Métricas conservadas: Unidades Totales Periodo, Días válidos, USD Real, Objetivo USD y USD Real vs Objetivo.
 - Fechas sin dato y unidades vacías no cuentan como cero ni como día válido.
-- Limpieza de imágenes duplicadas no conectadas.
-- `manifest.json` corregido con `start_url: "./"` y `scope: "./"`.
-- `service-worker.js` actualizado con cache `concurso-venta-v4-2026-07-04-fix-pages` y rutas existentes.
-- `.nojekyll` incluido en raíz para GitHub Pages.
+- Compatibilidad conservada con GitHub Pages.
+- `service-worker.js` conserva rutas existentes y actualiza el cache a `v5-2026-07-05-db-update` para evitar servir data anterior.

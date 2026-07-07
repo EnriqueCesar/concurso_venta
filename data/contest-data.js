@@ -1,240 +1,241 @@
 window.CONTEST_DATA = {
   "stats": {
-    "updated": "04 Jul 2026",
+    "updated": "05 Jul 2026",
     "leader": "Cosmopol",
     "avgBase": 4.58,
-    "avgActual": 7.28,
-    "avgDiff": 2.69,
-    "units": 249.0,
+    "avgActual": 6.96,
+    "avgDiff": 2.38,
+    "units": 308.0,
     "dates": [
       "2026-07-01",
       "2026-07-02",
       "2026-07-03",
-      "2026-07-04"
+      "2026-07-04",
+      "2026-07-05"
     ],
-    "daysElapsed": 4
+    "daysElapsed": 5
   },
   "stores": [
     {
       "store": "Cosmopol",
       "image": "assets/managers_clean/SM_Cosmopol.jpeg",
       "base": 3.5,
-      "actual": 12.5,
-      "units": 50.0,
-      "days": 4,
-      "diff": 9.0,
-      "pct": 257.1,
+      "actual": 10.8,
+      "units": 54.0,
+      "days": 5,
+      "diff": 7.27,
+      "pct": 206.3,
       "weekly": [
-        50.0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ]
-    },
-    {
-      "store": "Cosmopol N1",
-      "image": "assets/managers_clean/SM_CosmopolN1.jpeg",
-      "base": 3.1,
-      "actual": 7.67,
-      "units": 23.0,
-      "days": 3,
-      "diff": 4.57,
-      "pct": 147.4,
-      "weekly": [
-        23.0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ]
-    },
-    {
-      "store": "Patio Ecatepec",
-      "image": "assets/managers_clean/SM_PatioEcatepec.jpeg",
-      "base": 6.5,
-      "actual": 11.0,
-      "units": 44.0,
-      "days": 4,
-      "diff": 4.5,
-      "pct": 69.2,
-      "weekly": [
-        44.0,
-        0,
-        0,
-        0,
-        0,
-        0
+        54.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
       ]
     },
     {
       "store": "Plaza San Marcos",
       "image": "assets/managers_clean/SM_SanMarcos.jpeg",
       "base": 4.1,
-      "actual": 7.0,
-      "units": 21.0,
-      "days": 3,
-      "diff": 2.9,
-      "pct": 70.7,
+      "actual": 8.5,
+      "units": 34.0,
+      "days": 4,
+      "diff": 4.37,
+      "pct": 105.6,
       "weekly": [
-        21.0,
-        0,
-        0,
-        0,
-        0,
-        0
+        34.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "store": "Patio Ecatepec",
+      "image": "assets/managers_clean/SM_PatioEcatepec.jpeg",
+      "base": 6.5,
+      "actual": 10.6,
+      "units": 53.0,
+      "days": 5,
+      "diff": 4.07,
+      "pct": 62.4,
+      "weekly": [
+        53.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
       ]
     },
     {
       "store": "Cc Coacalco",
       "image": "assets/managers_clean/SM_Coacalco.jpeg",
       "base": 3.7,
-      "actual": 5.75,
-      "units": 23.0,
-      "days": 4,
-      "diff": 2.05,
-      "pct": 55.4,
+      "actual": 7.4,
+      "units": 37.0,
+      "days": 5,
+      "diff": 3.69,
+      "pct": 99.7,
       "weekly": [
-        23.0,
-        0,
-        0,
-        0,
-        0,
-        0
+        37.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
       ]
     },
     {
-      "store": "Plaza Las Flores",
-      "image": "assets/managers_clean/SM_LasFlores.jpeg",
-      "base": 4.6,
-      "actual": 6.33,
-      "units": 19.0,
-      "days": 3,
-      "diff": 1.73,
-      "pct": 37.6,
+      "store": "Cosmopol N1",
+      "image": "assets/managers_clean/SM_CosmopolN1.jpeg",
+      "base": 3.1,
+      "actual": 6.25,
+      "units": 25.0,
+      "days": 4,
+      "diff": 3.17,
+      "pct": 103.1,
       "weekly": [
-        19.0,
-        0,
-        0,
-        0,
-        0,
-        0
+        25.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
       ]
     },
     {
       "store": "Galerias Perinorte",
       "image": "assets/managers_clean/SM_GaleriasPerinorte.jpeg",
       "base": 6.3,
-      "actual": 7.33,
-      "units": 22.0,
-      "days": 3,
-      "diff": 1.03,
-      "pct": 16.3,
+      "actual": 7.5,
+      "units": 30.0,
+      "days": 4,
+      "diff": 1.17,
+      "pct": 18.4,
       "weekly": [
-        22.0,
-        0,
-        0,
-        0,
-        0,
-        0
+        30.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "store": "Plaza Las Flores",
+      "image": "assets/managers_clean/SM_LasFlores.jpeg",
+      "base": 4.6,
+      "actual": 5.0,
+      "units": 20.0,
+      "days": 4,
+      "diff": 0.44,
+      "pct": 9.8,
+      "weekly": [
+        20.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
       ]
     },
     {
       "store": "Izcalli Mega Df",
       "image": "assets/managers_clean/SM_IzcalliMega.jpeg",
       "base": 5.1,
-      "actual": 6.0,
-      "units": 24.0,
-      "days": 4,
-      "diff": 0.9,
-      "pct": 17.6,
+      "actual": 5.0,
+      "units": 25.0,
+      "days": 5,
+      "diff": -0.05,
+      "pct": -1.0,
       "weekly": [
-        24.0,
-        0,
-        0,
-        0,
-        0,
-        0
+        25.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
       ]
     },
     {
       "store": "Luna Park",
       "image": "assets/managers_clean/SM_LunaPark.jpeg",
       "base": 4.1,
-      "actual": 4.5,
-      "units": 9.0,
-      "days": 2,
-      "diff": 0.4,
-      "pct": 9.8,
+      "actual": 4.0,
+      "units": 12.0,
+      "days": 3,
+      "diff": -0.11,
+      "pct": -2.7,
       "weekly": [
-        9.0,
-        0,
-        0,
-        0,
-        0,
-        0
+        12.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
       ]
     },
     {
       "store": "San Miguel Izcalli",
       "image": "assets/managers_clean/SM_SanMiguelIzcalli.jpeg",
       "base": 4.8,
-      "actual": 4.67,
-      "units": 14.0,
-      "days": 3,
-      "diff": -0.13,
-      "pct": -2.7,
+      "actual": 4.5,
+      "units": 18.0,
+      "days": 4,
+      "diff": -0.26,
+      "pct": -5.6,
       "weekly": [
-        14.0,
-        0,
-        0,
-        0,
-        0,
-        0
+        18.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
       ]
     }
   ],
   "weeklySummary": [
     {
       "week": 27,
-      "total": 249.0,
-      "avg": 24.9,
+      "total": 308.0,
+      "avg": 30.8,
       "leader": "Cosmopol",
-      "leaderValue": 50.0
+      "leaderValue": 54.0
     },
     {
       "week": 28,
-      "total": 0,
+      "total": 0.0,
       "avg": 0.0,
       "leader": "Pendiente",
       "leaderValue": 0.0
     },
     {
       "week": 29,
-      "total": 0,
+      "total": 0.0,
       "avg": 0.0,
       "leader": "Pendiente",
       "leaderValue": 0.0
     },
     {
       "week": 30,
-      "total": 0,
+      "total": 0.0,
       "avg": 0.0,
       "leader": "Pendiente",
       "leaderValue": 0.0
     },
     {
       "week": 31,
-      "total": 0,
+      "total": 0.0,
       "avg": 0.0,
       "leader": "Pendiente",
       "leaderValue": 0.0
     },
     {
       "week": 32,
-      "total": 0,
+      "total": 0.0,
       "avg": 0.0,
       "leader": "Pendiente",
       "leaderValue": 0.0
@@ -263,10 +264,10 @@ window.CONTEST_DATA = {
   "source": {
     "excel": "Base_Concurso_Dona&Items.xlsx",
     "sheet": "Base_Dona G&G",
-    "maxDate": "2026-07-04",
-    "rawRowsAuthorized": 33,
+    "maxDate": "2026-07-05",
+    "rawRowsAuthorized": 43,
     "duplicatesIgnored": 0,
     "invalidRowsIgnored": 0,
-    "calculation": "USD Real = Unidades Totales Periodo / días con dato válido. Ranking por USD Real vs Objetivo USD. Celdas vacías o sin fecha no cuentan como día válido."
+    "calculation": "USD Real = Unidades Totales Periodo / días con dato válido. Ranking por USD Real vs Objetivo USD. Celdas vacías o sin fecha no cuentan como cero ni como día válido."
   }
 };
