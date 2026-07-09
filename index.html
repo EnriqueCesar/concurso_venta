@@ -48,16 +48,22 @@
     <p><b>La tienda que más puntos logre acorde a la mecánica gana para toda la plantilla.</b></p>
     <button class="termsBtn" id="openTerms" type="button">📋 Términos y Condiciones</button>
   </section>
-  <section class="productGrid productGridPremium">
-    <article class="productCard"><button class="imageBtn" data-img="assets/products_clean/dona.jpg" data-title="Dona Grab & Go"><img src="assets/products_clean/dona.jpg" alt="Dona Grab & Go"><span>🔎 Ver completo</span></button><h3>Dona Grab & Go</h3><b>1 punto</b></article>
-    <article class="productCard"><button class="imageBtn" data-img="assets/products_clean/cheesecake.jpg" data-title="Cheesecake Roulet"><img src="assets/products_clean/cheesecake.jpg" alt="Cheesecake Roulet"><span>🔎 Ver completo</span></button><h3>Cheesecake Roulet</h3><b>1 punto</b></article>
-    <article class="productCard"><button class="imageBtn" data-img="assets/products_clean/pan.jpg" data-title="Pan de Chocolate"><img src="assets/products_clean/pan.jpg" alt="Pan de Chocolate"><span>🔎 Ver completo</span></button><h3>Pan de Chocolate</h3><b>1 punto</b></article>
-    <article class="productCard"><button class="imageBtn" data-img="assets/products_clean/cookie.jpg" data-title="Cookie Straw"><img src="assets/products_clean/cookie.jpg" alt="Cookie Straw"><span>🔎 Ver completo</span></button><h3>Cookie Straw</h3><b>0.5 puntos</b></article>
-  </section>
+  <section class="kpis" id="generalKpis"></section>
+  <section class="generalExecutive" id="generalExecutive"></section>
+  <section class="productGrid productGridPremium" id="generalProducts"></section>
   <section class="rewardBox"><div><span>🏆 Premio Concurso General</span><h2>Un día adicional de descanso</h2><p>La tienda con mayor puntuación gana para toda la plantilla. Revisa con tu Gerente para hacerlo válido del <b>24 de agosto al 11 de octubre</b>.</p></div></section>
-  <section class="bonus"><div><span>⭐ BONUS</span><h2>5 pts adicionales</h2><p>Por cada partner que publique <b>¿Y Si, Sí?</b></p></div><div class="hashtags"><b>#OrgulloCN</b><b>#DistritoKike</b><b>#ModoMundialistaON</b></div><div class="deadline"><span>Fecha límite</span><strong>Domingo 5 de Julio · 09:00 PM</strong></div></section>
-  <section class="bonus prideBonus"><div><span>🌈 BONUS MIÉRCOLES</span><h2>10 pts</h2><p><b>Bonus Miércoles Orgullo CN</b>: durante los 5 miércoles del periodo, la tienda que realice su publicación suma puntos.</p></div><div class="hashtags"><b>#OrgulloCN</b><b>#DistritoKike</b><b>#Tienda</b></div><div class="deadline"><span>Periodo</span><strong>6 de julio al 9 de agosto</strong><small>Aplica en Concurso General</small></div></section>
-  <section class="trendPanel wide"><p class="eyebrow">Preparado</p><h2>Ranking General</h2><p class="muted">Listo para activar la base de puntos del concurso general.</p><div class="emptyChart">📈</div></section>
+  <section class="bonus"><div><span>⭐ BONUS ¿Y SI, SÍ?</span><h2>5 pts por partner</h2><p>Se suma directamente al total del Concurso General según publicaciones validadas.</p></div><div class="hashtags"><b>#OrgulloCN</b><b>#DistritoKike</b><b>#ModoMundialistaON</b></div><div class="deadline"><span>Fecha límite</span><strong>Domingo 5 de Julio · 09:00 PM</strong></div></section>
+  <section class="generalGrid">
+    <section class="rankingPanel">
+      <div class="sectionHead"><div><p class="eyebrow">Dashboard Ranking</p><h2>Ranking General por tienda</h2></div></div>
+      <div class="generalRanking" id="generalRanking"></div>
+    </section>
+    <aside class="trendPanel">
+      <p class="eyebrow">Bonus aplicado</p><h2>¿Y Si, Sí?</h2>
+      <p class="muted">Partners publicados y puntos integrados al total general.</p>
+      <div class="trendTable"><table><thead><tr><th>#</th><th>Tienda</th><th>Partners</th><th>Bonus</th><th>Total</th></tr></thead><tbody id="bonusTable"></tbody></table></div>
+    </aside>
+  </section>
 </section>
 </main>
 <footer>Juntos crecemos más grande 💚</footer>

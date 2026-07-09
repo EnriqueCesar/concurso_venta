@@ -1,4 +1,4 @@
-const CACHE = 'concurso-venta-v5-2026-07-05-db-update';
+const CACHE = 'concurso-venta-v6-ranking-bonus-2026-07-08';
 const ASSETS = [
   "./",
   "index.html",
@@ -12,6 +12,10 @@ const ASSETS = [
   "assets/products_clean/cheesecake.jpg",
   "assets/products_clean/pan.jpg",
   "assets/products_clean/cookie.jpg",
+  "assets/products/Dona G&G.jpeg",
+  "assets/products/Cheescake Roulete.jpeg",
+  "assets/products/Pan de Chocolate.jpeg",
+  "assets/products/Cookie Straw.jpeg",
   "assets/managers_clean/SM_Coacalco.jpeg",
   "assets/managers_clean/SM_Cosmopol.jpeg",
   "assets/managers_clean/SM_CosmopolN1.jpeg",
