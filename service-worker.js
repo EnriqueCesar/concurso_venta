@@ -1,4 +1,4 @@
-const CACHE = 'concurso-venta-v6-ranking-bonus-2026-07-08';
+const CACHE = 'concurso-venta-v8-dona-gg-promedio-venta-24-26';
 const ASSETS = [
   "./",
   "index.html",

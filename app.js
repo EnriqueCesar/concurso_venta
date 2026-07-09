@@ -59,7 +59,7 @@ function renderGeneral(){
   const kpis = [
     ['Actualizado', g.updated],
     ['Líder General', g.leader],
-    ['Puntos Totales', points(g.totalPoints)],
+    ['Puntaje Total', points(g.totalPoints)],
     ['Puntos Productos', points(g.productPoints)],
     ['Bonus ¿Y Si, Sí?', points(g.bonusPoints)],
     ['Partners publicados', points(g.bonusPartners)]
@@ -72,25 +72,26 @@ function renderGeneral(){
     <article class="productCard">
       <button class="imageBtn" data-img="${p.image}" data-title="${p.simple}" type="button"><img src="${p.image}" alt="${p.simple}"><span>🔎 Ver completo</span></button>
       <h3>${p.simple}</h3>
-      <b>${points(p.pointsPerUnit)} punto${p.pointsPerUnit===1?'':'s'} por unidad</b>
-      <small>${points(p.units)} unidades · ${points(p.points)} pts · líder: ${p.leader}</small>
+      <b>${points(p.pointsPerUnit)} punto${p.pointsPerUnit===1?'':'s'} por pieza</b>
+      <small>${points(p.units)} piezas · ${points(p.points)} pts · líder: ${p.leader}</small>
     </article>`).join('');
 
   const maxTotal = Math.max(...g.ranking.map(s=>s.totalPoints), 1);
   const rankNode = $('#generalRanking');
   if(rankNode) rankNode.innerHTML = g.ranking.map((s,i)=>{
     const width = Math.max(s.totalPoints ? 8 : 0, Math.min(100, s.totalPoints/maxTotal*100));
-    const delta = i===0 ? 'Líder' : `${points(s.deltaPrev)} pts vs tienda anterior`;
+    const deltaPrev = i===0 ? 'Líder actual' : `${points(s.deltaPrev)} pts vs tienda anterior`;
+    const deltaLeader = i===0 ? '0 pts vs líder' : `${points(s.deltaLeader)} pts debajo del líder`;
     return `<article class="generalRankCard ${i<3?'podium':''} ${i===0?'top1':''}">
       <div class="generalRankMain">
         <div class="rankBadge">${medal(i)}</div>
         <img src="${s.image}" alt="${s.store}">
-        <div><h3>${s.store}</h3><p>${delta}</p></div>
+        <div><h3>${s.store}</h3><p>${deltaPrev}</p><p class="leaderGap">${deltaLeader} · Fuerte: <b>${s.strongestProduct}</b></p></div>
       </div>
-      <div class="generalScore"><strong>${points(s.totalPoints)}</strong><span>pts totales</span></div>
+      <div class="generalScore"><strong>${points(s.totalPoints)}</strong><span>puntaje total</span></div>
       <div class="scoreBar"><i style="width:${width}%"></i></div>
-      <div class="scoreBreakdown"><span>Productos <b>${points(s.productPoints)}</b></span><span>Bonus <b>${points(s.bonusPoints)}</b></span><span>Partners <b>${points(s.bonusPartners)}</b></span></div>
-      <div class="productBreakdown">${s.products.map(p=>`<span title="${p.reporte}">${p.simple}<b>${points(p.points)}</b></span>`).join('')}</div>
+      <div class="scoreBreakdown"><span>Piezas <b>${points(s.productUnits)}</b></span><span>Productos <b>${points(s.productPoints)}</b></span><span>Bonus <b>${points(s.bonusPoints)}</b></span><span>Partners <b>${points(s.bonusPartners)}</b></span></div>
+      <div class="productBreakdown">${s.products.map(p=>`<span title="${p.reporte} · ${points(p.units)} piezas">${p.simple}<b>${points(p.points)}</b><small>${points(p.units)} pzas</small></span>`).join('')}</div>
     </article>`;
   }).join('');
 
@@ -98,7 +99,7 @@ function renderGeneral(){
   if(bonusNode) bonusNode.innerHTML = g.ranking.map(s=>`<tr><td>${s.position}</td><td>${s.store}</td><td>${points(s.bonusPartners)}</td><td>${points(s.bonusPoints)}</td><td>${points(s.totalPoints)}</td></tr>`).join('');
 
   const summaryNode = $('#generalExecutive');
-  if(summaryNode) summaryNode.innerHTML = `<div class="execCard"><span>Resumen ejecutivo</span><h2>${top.store || 'Pendiente'} lidera con ${points(top.totalPoints)} pts</h2><p>El total combina puntos por producto y el bonus ¿Y Si, Sí?. La diferencia contra la tienda anterior se muestra en cada tarjeta para leer rápido el avance.</p></div><div class="execMini"><b>${points(g.productPoints)}</b><span>pts por productos</span></div><div class="execMini"><b>${points(g.bonusPoints)}</b><span>pts bonus</span></div>`;
+  if(summaryNode) summaryNode.innerHTML = `<div class="execCard"><span>Resumen ejecutivo</span><h2>${top.store || 'Pendiente'} lidera con ${points(top.totalPoints)} pts</h2><p>El ranking se calcula con <b>Uso Ideal* (#) × Pts Concurso General</b> por producto y suma el bonus ¿Y Si, Sí?. Se ordena por Puntaje Total acumulado.</p></div><div class="execMini"><b>${points(g.productPoints)}</b><span>pts por productos</span></div><div class="execMini"><b>${points(g.bonusPoints)}</b><span>pts bonus</span></div>`;
 }
 
 function sortBy(mode){stores.sort((a,b)=> mode==='units'?b.units-a.units: mode==='actual'?b.actual-a.actual:(b.diff-a.diff)||(b.units-a.units)); renderCards(stores);} 

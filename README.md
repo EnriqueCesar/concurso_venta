@@ -2,7 +2,7 @@
 
 ## Versión
 
-**v6-concurso-general-ranking-bonus**
+**v8-dona-gg-promedio-venta-24-26**
 
 Proyecto estático listo para GitHub Pages con PWA conservada.
 
@@ -10,82 +10,56 @@ Proyecto estático listo para GitHub Pages con PWA conservada.
 
 Archivo usado: **Base_Concurso_Dona&Items.xlsx**
 
-Pestañas principales:
+Pestañas revisadas:
 
-- **Base_Dona G&G**: alimenta la pestaña **Dona Grab & Go**.
-- **Base_Concurso General**: alimenta la pestaña **Concurso General**.
-- **Y Si Sí**: alimenta el bonus de publicaciones.
-- **Imagenes**: catálogo de productos, nombre simple, imagen y puntos.
+- **Dona G&G Sem 24 a Sem 26**: fuente del Promedio Sem 24–26.
+- **Base_Dona G&G**: fuente operativa de Dona G&G.
+- **Base_Concurso General**: se conserva sin cambios respecto a v7.
 
-La carga se trabajó por nombre de encabezado, no por posición fija.
+## Ajuste realizado
 
-## Productos Concurso General
+Se corrigió únicamente el **Promedio de Venta Semanas 24–26** en la pestaña **Dona G&G** usando la última columna **Prom** como valor oficial.
 
-| Nombre Reporte | Nombre Simple | Imagen | Puntos |
-|---|---|---:|---:|
-| Dona Grab & Go | Dona Grab & Go | Dona G&G.jpeg | 1 |
-| Bis Nal Cheesecake Roulet Maxi | Cheesecake Roulet | Cheescake Roulete.jpeg | 1 |
-| Bis Pan De Chocolate Margarina C | Pan de Chocolate | Pan de Chocolate.jpeg | 1 |
-| Cookie Straw CJ/6 LTA/25 pzas | Cookie Straw | Cookie Straw.jpeg | 0.5 |
+Valores cargados:
 
-## Regla de puntos
+| Tienda | Promedio Sem 24–26 |
+|---|---:|
+| Cc Coacalco | 3.7 |
+| Cosmopol | 3.5 |
+| Cosmopol N1 | 3.1 |
+| Galerias Perinorte | 6.3 |
+| Izcalli Mega Df | 5.1 |
+| Luna Park | 4.1 |
+| Patio Ecatepec | 6.5 |
+| Plaza Las Flores | 4.6 |
+| Plaza San Marcos | 4.1 |
+| San Miguel Izcalli | 4.8 |
 
-El total del **Concurso General** por tienda considera:
+## Lógica conservada Dona G&G
 
-- Dona Grab & Go x 1 punto.
-- Cheesecake Roulet x 1 punto.
-- Pan de Chocolate x 1 punto.
-- Cookie Straw x 0.5 puntos.
-- Bonus **¿Y Si, Sí?** x 5 puntos por partner publicado.
+- **USD Real** conserva la lógica actual del proyecto.
+- **Objetivo USD** usa el Promedio Sem 24–26 corregido.
+- **Diferencia** = USD Real - Objetivo USD.
+- El ranking Dona G&G se ordena por USD Real vs Objetivo USD.
 
-## Bonus ¿Y Si, Sí?
+## Concurso General
 
-Regla: **5 puntos por cada Partner** que publique ¿Y Si, Sí? con:
+Se conserva la versión v7 sin modificar la lógica de cálculo:
 
-- #OrgulloCN
-- #DistritoKike
-- #ModoMundialistaON
-
-Límite: **domingo 5 de julio · 09:00 pm**.
-
-Puntos cargados por tienda:
-
-| Tienda | Partners | Puntos |
-|---|---:|---:|
-| Cc Coacalco | 2 | 10 |
-| Cosmopol | 1 | 5 |
-| Cosmopol N1 | 2 | 10 |
-| Galerias Perinorte | 1 | 5 |
-| Izcalli Mega Df | 1 | 5 |
-| Luna Park | 2 | 10 |
-| Patio Ecatepec | 2 | 10 |
-| Plaza Las Flores | 4 | 20 |
-| Plaza San Marcos | 1 | 5 |
-| San Miguel Izcalli | 2 | 10 |
-
-## Ajustes realizados
-
-- Se conservó la pestaña **Dona Grab & Go** con su lógica de ranking por USD Real vs Objetivo USD.
-- Se actualizó `data/contest-data.js` desde el Excel entregado.
-- Se activó la pestaña **Concurso General** como dashboard de ranking.
-- Se integró ranking de tiendas, puntos totales, avance por producto, bonus aplicado, posición y diferencia contra la tienda anterior.
-- Se agregó resumen ejecutivo y tabla clara del bonus.
-- Se validaron las imágenes esperadas en `assets/products`. No fue necesario cambiar nombres ni rutas porque existen exactamente:
-  - `assets/products/Dona G&G.jpeg`
-  - `assets/products/Cheescake Roulete.jpeg`
-  - `assets/products/Pan de Chocolate.jpeg`
-  - `assets/products/Cookie Straw.jpeg`
+**Uso Ideal* (#) × Pts Concurso General + Bonus ¿Y Si, Sí?**
 
 ## Validaciones realizadas
 
-- `index.html`, `app.js`, `styles.css`, `manifest.json`, `service-worker.js`, `assets` y `data` revisados.
+- `data/contest-data.js` actualizado con los promedios oficiales.
+- Promedio Sem 24–26 ya no queda en cero para ninguna tienda.
+- USD Real conserva su fórmula actual y recibe el objetivo actualizado.
+- Ranking Dona G&G recalculado por diferencia vs objetivo.
+- Concurso General conservado sin cambios de lógica.
 - Sintaxis JavaScript validada con `node --check app.js`.
-- JSON embebido de `data/contest-data.js` validado.
-- Rutas locales referenciadas por HTML/JS/DATA verificadas contra archivos existentes.
-- Ranking de Concurso General ordenado de mayor a menor por puntos totales.
-- Bonus **¿Y Si, Sí?** sumado al total general.
-- Productos con puntos correctos: 1, 1, 1 y 0.5.
-- Archivos del proyecto verificados por tamaño: ninguno supera 20 MB.
+- JSON embebido en `data/contest-data.js` validado.
+- Rutas de imágenes y data referenciadas validadas.
+- `manifest.json` y `service-worker.js` conservan compatibilidad PWA.
+- Ningún archivo supera 20 MB.
 
 ## Compatibilidad
 
