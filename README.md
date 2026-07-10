@@ -2,65 +2,59 @@
 
 ## Versión
 
-**v8-dona-gg-promedio-venta-24-26**
+**v8-data-08-julio-ui-cleanup**
 
-Proyecto estático listo para GitHub Pages con PWA conservada.
+Proyecto estático actualizado y listo para desplegar en GitHub Pages, conservando la arquitectura, la navegación, los rankings y la PWA existentes.
 
 ## Fuente de datos
 
-Archivo usado: **Base_Concurso_Dona&Items.xlsx**
+Archivo utilizado: **Base_Concurso_Dona&Items.xlsx**
 
-Pestañas revisadas:
+Pestañas actualizadas:
 
-- **Dona G&G Sem 24 a Sem 26**: fuente del Promedio Sem 24–26.
-- **Base_Dona G&G**: fuente operativa de Dona G&G.
-- **Base_Concurso General**: se conserva sin cambios respecto a v7.
+- **Base_Dona G&G**
+- **Base_Concurso General**
 
-## Ajuste realizado
+Fecha máxima integrada: **08/07/2026**.
 
-Se corrigió únicamente el **Promedio de Venta Semanas 24–26** en la pestaña **Dona G&G** usando la última columna **Prom** como valor oficial.
+La regeneración trabaja por nombre de hoja y encabezado mediante:
 
-Valores cargados:
+```bash
+python scripts/refresh_data.py Base_Concurso_Dona\&Items.xlsx
+```
 
-| Tienda | Promedio Sem 24–26 |
-|---|---:|
-| Cc Coacalco | 3.7 |
-| Cosmopol | 3.5 |
-| Cosmopol N1 | 3.1 |
-| Galerias Perinorte | 6.3 |
-| Izcalli Mega Df | 5.1 |
-| Luna Park | 4.1 |
-| Patio Ecatepec | 6.5 |
-| Plaza Las Flores | 4.6 |
-| Plaza San Marcos | 4.1 |
-| San Miguel Izcalli | 4.8 |
+## Cambios realizados
 
-## Lógica conservada Dona G&G
+- Data de Dona Grab & Go actualizada al 8 de julio de 2026.
+- Data de Concurso General actualizada al 8 de julio de 2026.
+- Rankings, acumulados, ponderaciones y puntos recalculados con las reglas existentes.
+- Tarjetas de producto simplificadas para mostrar únicamente imagen, nombre simple y ponderación por pieza.
+- Piezas acumuladas, puntos acumulados y líder permanecen en la estructura de datos para cálculos, pero se ocultan de la tarjeta visual.
+- Ajustes de espaciado, contraste, jerarquía y responsive en las tarjetas.
+- Icono de ampliación sustituido por SVG monoline.
+- Caché del service worker actualizado para publicar la nueva versión.
 
-- **USD Real** conserva la lógica actual del proyecto.
-- **Objetivo USD** usa el Promedio Sem 24–26 corregido.
-- **Diferencia** = USD Real - Objetivo USD.
-- El ranking Dona G&G se ordena por USD Real vs Objetivo USD.
+## Regla conservada
 
-## Concurso General
-
-Se conserva la versión v7 sin modificar la lógica de cálculo:
+El Concurso General mantiene:
 
 **Uso Ideal* (#) × Pts Concurso General + Bonus ¿Y Si, Sí?**
 
+Dona Grab & Go conserva el cálculo de USD Real, Objetivo USD, diferencia y ranking de la versión anterior.
+
 ## Validaciones realizadas
 
-- `data/contest-data.js` actualizado con los promedios oficiales.
-- Promedio Sem 24–26 ya no queda en cero para ninguna tienda.
-- USD Real conserva su fórmula actual y recibe el objetivo actualizado.
-- Ranking Dona G&G recalculado por diferencia vs objetivo.
-- Concurso General conservado sin cambios de lógica.
-- Sintaxis JavaScript validada con `node --check app.js`.
-- JSON embebido en `data/contest-data.js` validado.
-- Rutas de imágenes y data referenciadas validadas.
-- `manifest.json` y `service-worker.js` conservan compatibilidad PWA.
-- Ningún archivo supera 20 MB.
+- Fecha máxima de ambas bases: 08/07/2026.
+- 71 registros en Base_Dona G&G.
+- 104 registros en Base_Concurso General.
+- Sin duplicados exactos en las pestañas actualizadas.
+- Rutas de data, imágenes, manifest y service worker verificadas.
+- Sintaxis JavaScript validada.
+- Manifest JSON válido.
+- Service worker conserva precaché y actualización de versión.
+- Ningún archivo individual supera 20 MB.
+- Estructura relativa compatible con GitHub Pages.
 
 ## Compatibilidad
 
-Proyecto compatible con **GitHub Pages**. Mantiene estructura estática, `.nojekyll`, manifest y service worker.
+Compatible con GitHub Pages y funcionamiento PWA mediante `manifest.json`, `service-worker.js` y `.nojekyll`.

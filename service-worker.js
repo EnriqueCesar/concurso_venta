@@ -1,4 +1,4 @@
-const CACHE = 'concurso-venta-v8-dona-gg-promedio-venta-24-26';
+const CACHE = 'concurso-venta-v8-data-08-julio-ui-cleanup';
 const ASSETS = [
   "./",
   "index.html",

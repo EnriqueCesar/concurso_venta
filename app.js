@@ -70,10 +70,11 @@ function renderGeneral(){
   const productNode = $('#generalProducts');
   if(productNode) productNode.innerHTML = g.productSummary.map(p=>`
     <article class="productCard">
-      <button class="imageBtn" data-img="${p.image}" data-title="${p.simple}" type="button"><img src="${p.image}" alt="${p.simple}"><span>🔎 Ver completo</span></button>
-      <h3>${p.simple}</h3>
-      <b>${points(p.pointsPerUnit)} punto${p.pointsPerUnit===1?'':'s'} por pieza</b>
-      <small>${points(p.units)} piezas · ${points(p.points)} pts · líder: ${p.leader}</small>
+      <button class="imageBtn" data-img="${p.image}" data-title="${p.simple}" type="button" aria-label="Ver imagen completa de ${p.simple}">
+        <img src="${p.image}" alt="${p.simple}">
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>Ver imagen</span>
+      </button>
+      <div class="productInfo"><h3>${p.simple}</h3><b>${points(p.pointsPerUnit)} punto${p.pointsPerUnit===1?'':'s'} por pieza</b></div>
     </article>`).join('');
 
   const maxTotal = Math.max(...g.ranking.map(s=>s.totalPoints), 1);

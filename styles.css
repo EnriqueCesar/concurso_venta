@@ -83,3 +83,17 @@ main{max-width:1800px;margin:auto;padding:28px 5vw 60px}.view{display:none}.view
 .generalRankCard{padding-right:150px}
 @media(max-width:1200px){.generalRankCard{padding-right:16px}.scoreBreakdown{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:650px){.scoreBreakdown{grid-template-columns:1fr}}
+
+/* v8-data-08-julio-ui-cleanup */
+.brandMark svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.productGridPremium{margin-top:22px}
+.productCard{padding:16px;border-radius:26px;box-shadow:0 10px 30px rgba(6,63,43,.08);gap:16px}
+.productCard:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(6,63,43,.12)}
+.productCard .imageBtn{min-height:250px;border-radius:20px;background:#f7f9f7;border-color:#e2ebe5}
+.productCard img{height:250px;padding:14px !important;border-radius:20px}
+.productCard .imageBtn span{display:flex;align-items:center;gap:7px;background:rgba(0,98,65,.94);padding:9px 12px}
+.productCard .imageBtn span svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.productInfo{display:grid;gap:7px;text-align:center;padding:0 6px 6px}
+.productCard h3{min-height:0;margin:0;display:block;font-size:22px;line-height:1.2;color:var(--green)}
+.productCard b{margin:0;font-size:17px;color:var(--green2)}
+@media(max-width:650px){.productCard .imageBtn{min-height:210px}.productCard img{height:210px}.productCard{border-radius:22px}.productCard h3{font-size:21px}}
