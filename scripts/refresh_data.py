@@ -145,7 +145,7 @@ def build(excel_path: Path) -> tuple[dict, dict]:
 
     dates = sorted(set().union(*(dona[s]['dates'] for s in dona)))
     latest = max(dates)
-    latest_label = datetime.fromisoformat(latest).strftime('%d %b %Y')
+    latest_label = datetime.fromisoformat(latest).strftime('%d/%m')
     weeks = list(range(27, 33))
     stores = []
     for store in portfolio:
