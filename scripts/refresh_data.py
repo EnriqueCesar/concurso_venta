@@ -32,6 +32,8 @@ PRODUCTS = [
      'aliases':{'Bis Pan De Chocolate Margarina C'}},
     {'reporte':'Cookie Straw CJ/6 LTA/25 pzas','simple':'Cookie Straw','image':'assets/products/Cookie Straw.jpeg','pointsPerUnit':0.5,
      'aliases':{'Cookie Straw CJ/6 LTA/25 pzas'}},
+    {'reporte':'Cake Pop Vainilla Cumpleanos Cja','simple':'CakePop','displayName':'Cake Pop','image':'assets/products/cake_pop.png','pointsPerUnit':1.0,
+     'aliases':{'Cake Pop Vainilla Cumpleanos Cja','Cake Pop Chocolate Cja/12 Bliste','CAKE POP COOKIES/CREAM CJ'}},
 ]
 PRODUCT_BY_ALIAS = {alias:p for p in PRODUCTS for alias in p['aliases']}
 REQUIRED = {
@@ -190,6 +192,7 @@ def build(excel_path: Path) -> tuple[dict, dict]:
         for p in PRODUCTS:
             value=by_store[store]['products'][p['simple']]
             products.append({'reporte':p['reporte'],'simple':p['simple'],'image':p['image'],
+                             'displayName':p.get('displayName',p['simple']),'inventoryNames':sorted(p['aliases']),
                              'pointsPerUnit':p['pointsPerUnit'],'units':round2(value['units']),'points':round2(value['points'])})
         product_units=sum(p['units'] for p in products); product_points=sum(p['points'] for p in products)
         partners, bonus_points = bonus.get(store,(0,0))
@@ -209,6 +212,7 @@ def build(excel_path: Path) -> tuple[dict, dict]:
         totals=product_totals[p['simple']]
         leader=max(totals['stores'].items(),key=lambda kv:(kv[1],kv[0]))[0] if totals['stores'] else 'Pendiente'
         product_summary.append({'reporte':p['reporte'],'simple':p['simple'],'image':p['image'],
+                                'displayName':p.get('displayName',p['simple']),'inventoryNames':sorted(p['aliases']),
                                 'pointsPerUnit':p['pointsPerUnit'],'units':round2(totals['units']),
                                 'points':round2(totals['points']),'leader':leader})
     general_product_points=round2(sum(x['productPoints'] for x in ranking))
@@ -219,14 +223,16 @@ def build(excel_path: Path) -> tuple[dict, dict]:
                'avgDiff':round2(sum(s['diff'] for s in stores)/len(stores)),
                'units':round2(sum(s['units'] for s in stores)),'dates':dates,'daysElapsed':len(dates)},
       'stores':stores,'weeklySummary':weekly_summary,'weeks':weeks,'portfolio':portfolio,
-      'general':{'version':'v8-data-08-julio-ui-cleanup','updated':latest_label,'sourceSheet':'Base_Concurso General',
+      'general':{'version':'v9-cake-pop-18-julio','updated':latest_label,'sourceSheet':'Base_Concurso General',
                  'calculationRule':'Uso Ideal* (#) × Pts Concurso General + Bonus ¿Y Si, Sí?',
                  'leader':ranking[0]['store'],'totalPoints':round2(general_product_points+general_bonus_points),
                  'productPoints':general_product_points,'bonusPoints':general_bonus_points,
                  'bonusPartners':sum(x['bonusPartners'] for x in ranking),'productSummary':product_summary,'ranking':ranking}
     }
     audit={'latestDate':latest,'donaRows':len(dona_rows),'generalRows':len(general_rows),'donaDuplicates':dup_dona,
-           'generalDuplicates':dup_general,'donaUnits':data['stats']['units'],'generalPoints':data['general']['totalPoints']}
+           'generalDuplicates':dup_general,'donaUnits':data['stats']['units'],'generalPoints':data['general']['totalPoints'],
+           'cakePopRows':sum(1 for r in general_rows if r['Ingrediente'].strip() in PRODUCT_BY_ALIAS and PRODUCT_BY_ALIAS[r['Ingrediente'].strip()]['simple']=='CakePop'),
+           'cakePopUnits':round2(sum(float(r['Uso Ideal* (#)'] or 0) for r in general_rows if r['Ingrediente'].strip() in PRODUCT_BY_ALIAS and PRODUCT_BY_ALIAS[r['Ingrediente'].strip()]['simple']=='CakePop'))}
     return data,audit
 
 def main():

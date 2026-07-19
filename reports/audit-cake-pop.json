@@ -1,0 +1,122 @@
+{
+  "project": "concurso_venta",
+  "sourceFile": "Base_Concurso_Dona&Items(9).xlsx",
+  "sheets": {
+    "Venta Dona G&G 24_26": {
+      "physicalRows": 177,
+      "headers": [
+        "División",
+        "DM",
+        "Tiendas",
+        "Categoría Inventario",
+        "Mes",
+        "Semana",
+        "Dia",
+        "Ingrediente",
+        "Venta Unidad"
+      ]
+    },
+    "Dona G&G Sem 24 a Sem 26": {
+      "physicalRows": 12,
+      "headers": [
+        "",
+        "Dona G&G",
+        "Sem"
+      ]
+    },
+    "Imagen SM Tienda": {
+      "physicalRows": 11,
+      "headers": [
+        "",
+        "Tienda",
+        "Imagen Gerente"
+      ]
+    },
+    "Y Si Sí": {
+      "physicalRows": 11,
+      "headers": [
+        "Tienda",
+        "Partners que publicaron",
+        "Puntos"
+      ]
+    },
+    "Imagenes": {
+      "physicalRows": 9,
+      "headers": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    "Base_Dona G&G": {
+      "physicalRows": 162,
+      "headers": [
+        "División",
+        "DM",
+        "Tiendas",
+        "Semana",
+        "Dia",
+        "Ingrediente",
+        "Unidad"
+      ]
+    },
+    "Base_Concurso General": {
+      "physicalRows": 794,
+      "headers": [
+        "División",
+        "DM",
+        "Tiendas",
+        "Semana",
+        "Dia",
+        "Ingrediente",
+        "Uso Ideal* (#)"
+      ]
+    },
+    "Hoja1": {
+      "physicalRows": 8,
+      "headers": [
+        "Ingrediente"
+      ]
+    }
+  },
+  "requiredHeadersValidated": true,
+  "latestDate": "2026-07-18",
+  "duplicates": {
+    "dona": 0,
+    "general": 0
+  },
+  "cakePop": {
+    "variants": {
+      "Cake Pop Vainilla Cumpleanos Cja": {
+        "rows": 123,
+        "units": 296.6650000000001
+      },
+      "Cake Pop Chocolate Cja/12 Bliste": {
+        "rows": 121,
+        "units": 187.666
+      },
+      "CAKE POP COOKIES/CREAM CJ": {
+        "rows": 100,
+        "units": 107.99499999999998
+      }
+    },
+    "groupedSimpleName": "CakePop",
+    "visibleName": "Cake Pop",
+    "groupedUnits": 592.33,
+    "groupedPoints": 592.33,
+    "pointsPerUnit": 1.0,
+    "image": "assets/products/cake_pop.png"
+  },
+  "cookieStrawPointsPerUnit": 0.5,
+  "generalTotalPoints": 3819.33,
+  "validation": {
+    "allCakePopVariantsRecognized": true,
+    "cakePopGroupedOnce": true,
+    "cakePopPointsEqualUnits": true,
+    "cookieStrawAtHalfPoint": true,
+    "imageExists": true,
+    "campaignJsonValid": true
+  }
+}

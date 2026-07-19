@@ -69,12 +69,12 @@ function renderGeneral(){
 
   const productNode = $('#generalProducts');
   if(productNode) productNode.innerHTML = g.productSummary.map(p=>`
-    <article class="productCard">
-      <button class="imageBtn" data-img="${p.image}" data-title="${p.simple}" type="button" aria-label="Ver imagen completa de ${p.simple}">
-        <img src="${p.image}" alt="${p.simple}">
+    <article class="productCard ${p.simple==='CakePop'?'cakePopCard':''}">
+      <button class="imageBtn" data-img="${p.image}" data-title="${p.displayName || p.simple}" type="button" aria-label="Ver imagen completa de ${p.displayName || p.simple}">
+        <img src="${p.image}" alt="${p.displayName || p.simple}">
         <span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>Ver imagen</span>
       </button>
-      <div class="productInfo"><h3>${p.simple}</h3><b>${points(p.pointsPerUnit)} punto${p.pointsPerUnit===1?'':'s'} por pieza</b></div>
+      <div class="productInfo"><h3>${p.displayName || p.simple}</h3><b>${points(p.pointsPerUnit)} punto${p.pointsPerUnit===1?'':'s'} por pieza</b></div>
     </article>`).join('');
 
   const maxTotal = Math.max(...g.ranking.map(s=>s.totalPoints), 1);
@@ -92,7 +92,7 @@ function renderGeneral(){
       <div class="generalScore"><strong>${points(s.totalPoints)}</strong><span>puntaje total</span></div>
       <div class="scoreBar"><i style="width:${width}%"></i></div>
       <div class="scoreBreakdown"><span>Piezas <b>${points(s.productUnits)}</b></span><span>Productos <b>${points(s.productPoints)}</b></span><span>Bonus <b>${points(s.bonusPoints)}</b></span><span>Partners <b>${points(s.bonusPartners)}</b></span></div>
-      <div class="productBreakdown">${s.products.map(p=>`<span title="${p.reporte} · ${points(p.units)} piezas">${p.simple}<b>${points(p.points)}</b><small>${points(p.units)} pzas</small></span>`).join('')}</div>
+      <div class="productBreakdown">${s.products.map(p=>`<span title="${(p.inventoryNames || [p.reporte]).join(' · ')} · ${points(p.units)} piezas">${p.displayName || p.simple}<b>${points(p.points)}</b><small>${points(p.units)} pzas</small></span>`).join('')}</div>
     </article>`;
   }).join('');
 
@@ -104,7 +104,20 @@ function renderGeneral(){
 }
 
 function sortBy(mode){stores.sort((a,b)=> mode==='units'?b.units-a.units: mode==='actual'?b.actual-a.actual:(b.diff-a.diff)||(b.units-a.units)); renderCards(stores);} 
-setTabs(); renderKpis(); renderCards(); renderGeneral(); $('#sortMode').addEventListener('change',e=>sortBy(e.target.value));
+async function applyCampaignIdentity(){
+  try{
+    const response=await fetch('data/campaign.json',{cache:'no-cache'});
+    if(!response.ok) return;
+    const {campaign}=await response.json();
+    if(!campaign) return;
+    document.documentElement.style.setProperty('--campaign-primary',campaign.primaryColor || '#006241');
+    document.documentElement.style.setProperty('--campaign-accent',campaign.accentColor || '#111111');
+    document.querySelectorAll('[data-campaign-primary]').forEach(node=>node.textContent=campaign.primary || 'JUNTÉMONOS');
+    document.querySelectorAll('[data-campaign-accent]').forEach(node=>node.textContent=campaign.accent || 'MÁS');
+  }catch(error){ console.warn('[Campaign] No se pudo cargar la identidad centralizada.',error); }
+}
+
+setTabs(); renderKpis(); renderCards(); renderGeneral(); applyCampaignIdentity(); $('#sortMode').addEventListener('change',e=>sortBy(e.target.value));
 if('serviceWorker' in navigator){navigator.serviceWorker.register('service-worker.js').catch(()=>{});}
 
 function setImageModal(){

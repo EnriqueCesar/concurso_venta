@@ -15,7 +15,8 @@ window.CONCURSO_CONFIG = {
     { reporte:'Dona Grab & Go', simple:'Dona Grab & Go', img:'Dona G&G.jpeg', puntos:1, concurso1:true },
     { reporte:'Bis Nal Cheesecake Roulet Maxi', simple:'Cheesecake Roulet', img:'Cheescake Roulete.jpeg', puntos:1, concurso1:false },
     { reporte:'Bis Pan De Chocolate Margarina C', simple:'Pan de Chocolate', img:'Pan de Chocolate.jpeg', puntos:1, concurso1:false },
-    { reporte:'Cookie Straw CJ/6 LTA/25 pzas', simple:'Cookie Straw', img:'Cookie Straw.jpeg', puntos:0.5, concurso1:false }
+    { reporte:'Cookie Straw CJ/6 LTA/25 pzas', simple:'Cookie Straw', img:'Cookie Straw.jpeg', puntos:0.5, concurso1:false },
+    { reporte:'Cake Pop Vainilla Cumpleanos Cja', simple:'CakePop', displayName:'Cake Pop', img:'cake_pop.png', puntos:1, concurso1:false, aliases:['Cake Pop Vainilla Cumpleanos Cja','Cake Pop Chocolate Cja/12 Bliste','CAKE POP COOKIES/CREAM CJ'] }
   ],
   sampleRows: [
     {fecha:'2026-07-06', semana:28, tienda:'Cc Coacalco', producto:'Dona Grab & Go', unidades:9},

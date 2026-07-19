@@ -1,4 +1,4 @@
-const CACHE = 'concurso-venta-v8-data-08-julio-ui-cleanup';
+const CACHE = 'concurso-venta-v9-cake-pop-18-julio';
 const ASSETS = [
   "./",
   "index.html",
@@ -6,6 +6,7 @@ const ASSETS = [
   "app.js",
   "manifest.json",
   "data/contest-data.js",
+  "data/campaign.json",
   "assets/icons/icon-192.png",
   "assets/icons/icon-512.png",
   "assets/products_clean/dona.jpg",
@@ -16,6 +17,7 @@ const ASSETS = [
   "assets/products/Cheescake Roulete.jpeg",
   "assets/products/Pan de Chocolate.jpeg",
   "assets/products/Cookie Straw.jpeg",
+  "assets/products/cake_pop.png",
   "assets/managers_clean/SM_Coacalco.jpeg",
   "assets/managers_clean/SM_Cosmopol.jpeg",
   "assets/managers_clean/SM_CosmopolN1.jpeg",
